@@ -1,0 +1,17 @@
+#navbar {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  justify-content: center;
+}
+
+.navbar-button {
+  border-radius: 8px;
+  border: 2px solid #000000;
+  padding: 6px;
+  cursor: pointer;
+  margin-left: 16px;
+}
+
+
+

@@ -6,14 +6,55 @@
   <!-- Custom scripts -->
   <script src="../static/scripts/ui.js"></script>
 
+
+  <!-- Custom style -->
+  <link rel="stylesheet" href="../static/styles.css">
+
 </head>
 
-<html class="font-light h-full select-none">
+<html>
+  
+  <body hx-boost="true">
 
-  <body class="h-full" hx-boost="true">
+    <div id="navbar">
+
+      <a href="{{ url_for("home.index") }}" class="navbar-button">
+        Home
+      </a>
+
+      <a href="{{ url_for("home.about") }}" class="navbar-button">
+       About me
+      </a>
+      <a href="{{ url_for("home.projects") }}" class="navbar-button">
+        Personal Projects
+      </a>
+      <a href="{{ url_for("home.blog") }}" class="navbar-button">
+       Blogs
+      </a>
+      <a href="../static/media/resume.pdf" 
+        rel="noopener noreferrer"
+        class="navbar-button">
+        Resume
+      </a>
+      <a href="https://github.com/MatthewdeHaas"
+        target="_blank" 
+        class="navbar-button">
+        GitHub
+      </a>
+      <a href="https://www.linkedin.com"
+        target="_blank"
+        class="navbar-button">
+        LinkedIn
+      </a>
+
+    </div>
 
     {% block body %}
     {% endblock %}
+
+
+
+
 
   </body>
 
