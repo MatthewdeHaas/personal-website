@@ -1,0 +1,18 @@
+# macOS system files
+.DS_Store
+
+# Logs and temporary files
+*.log
+*.tmp
+*.swp
+
+# Python-related (if using Flask/Django)
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.env
+.env
+.venv/
+venv/
+env/
