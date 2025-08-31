@@ -3,9 +3,11 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
+  <!-- HTMX  -->
+  <script src="https://unpkg.com/htmx.org@2.0.4" integrity="sha384-HGfztofotfshcF7+8n44JQL2oJmowVChPTg48S+jvZoztPfvwD79OC/LTtG6dMp+" crossorigin="anonymous"></script>
+    
   <!-- Custom scripts -->
   <script src="../static/scripts/ui.js"></script>
-
 
   <!-- Custom style -->
   <link rel="stylesheet" href="../static/styles.css">
@@ -16,7 +18,7 @@
   
   <body hx-boost="true">
 
-    <div id="navbar">
+    <nav>
 
       <a href="{{ url_for("home.index") }}" class="navbar-button">
         Home
@@ -26,17 +28,17 @@
        About me
       </a>
       <a href="{{ url_for("home.projects") }}" class="navbar-button">
-        Personal Projects
+       Projects 
       </a>
       <a href="{{ url_for("home.blog") }}" class="navbar-button">
-       Blogs
+       Blog
       </a>
-      <a href="../static/media/resume.pdf" 
+      <a href="../static/media/resume.md" 
         rel="noopener noreferrer"
         class="navbar-button">
         Resume
       </a>
-      <a href="https://github.com/MatthewdeHaas"
+      <a hx-boost="false" href="https://github.com/MatthewdeHaas"
         target="_blank" 
         class="navbar-button">
         GitHub
@@ -47,13 +49,15 @@
         LinkedIn
       </a>
 
-    </div>
+    </nav>
 
-    {% block body %}
-    {% endblock %}
+    <main>
+      {% block body %}{% endblock %}
+    </main>
 
-
-
+    <footer>
+      <p>&copy; Matthew deHaas 2025. All rights reserved.</p>
+    </footer>
 
 
   </body>
