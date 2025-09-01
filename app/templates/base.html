@@ -20,32 +20,32 @@
 
     <nav>
 
-      <a href="{{ url_for("home.index") }}" class="navbar-button">
+      <a href="{{ url_for('home.index') }}" class="{% if request.endpoint == 'home.index' %}active{% endif %}">
         Home
       </a>
 
-      <a href="{{ url_for("home.about") }}" class="navbar-button">
+      <a href="{{ url_for('home.about') }}" class="{% if request.endpoint == 'home.about' %}active{% endif %}">
        About me
       </a>
-      <a href="{{ url_for("home.projects") }}" class="navbar-button">
+      <a href="{{ url_for('home.projects') }}" class="{% if request.endpoint == 'home.projects' %}active{% endif %}">
        Projects 
       </a>
-      <a href="{{ url_for("home.blog") }}" class="navbar-button">
+      <a href="{{ url_for('home.blog') }}" class="{% if request.endpoint == 'home.blog' %}active{% endif %}">
        Blog
       </a>
       <a href="../static/media/resume.md" 
         rel="noopener noreferrer"
-        class="navbar-button">
+        class="">
         Resume
       </a>
       <a hx-boost="false" href="https://github.com/MatthewdeHaas"
         target="_blank" 
-        class="navbar-button">
+        class="">
         GitHub
       </a>
       <a href="https://www.linkedin.com"
         target="_blank"
-        class="navbar-button">
+        class="">
         LinkedIn
       </a>
 
