@@ -18,6 +18,14 @@ def projects():
     return render_template("projects.html")
 
 
-@home.route("/blog")
-def blog():
-    return render_template("blog.html")
+@home.route("/blogs")
+def blogs():
+    return render_template("blogs.html")
+
+
+
+@home.route("/blog/<blog>")
+def blog(blog):
+    # TODO: extend base.html, perhaps from this funciton call
+    return render_template(f"blogs/{blog}.html")
+

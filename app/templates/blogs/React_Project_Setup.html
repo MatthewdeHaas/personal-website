@@ -1,0 +1,678 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>React_Project_Setup</title>
+  <style>
+    html {
+      color: #1a1a1a;
+      background-color: #fdfdfd;
+    }
+    body {
+      margin: 0 auto;
+      max-width: 36em;
+      padding-left: 50px;
+      padding-right: 50px;
+      padding-top: 50px;
+      padding-bottom: 50px;
+      hyphens: auto;
+      overflow-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+    }
+    @media (max-width: 600px) {
+      body {
+        font-size: 0.9em;
+        padding: 12px;
+      }
+      h1 {
+        font-size: 1.8em;
+      }
+    }
+    @media print {
+      html {
+        background-color: white;
+      }
+      body {
+        background-color: transparent;
+        color: black;
+        font-size: 12pt;
+      }
+      p, h2, h3 {
+        orphans: 3;
+        widows: 3;
+      }
+      h2, h3, h4 {
+        page-break-after: avoid;
+      }
+    }
+    p {
+      margin: 1em 0;
+    }
+    a {
+      color: #1a1a1a;
+    }
+    a:visited {
+      color: #1a1a1a;
+    }
+    img {
+      max-width: 100%;
+    }
+    svg {
+      height: auto;
+      max-width: 100%;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      margin-top: 1.4em;
+    }
+    h5, h6 {
+      font-size: 1em;
+      font-style: italic;
+    }
+    h6 {
+      font-weight: normal;
+    }
+    ol, ul {
+      padding-left: 1.7em;
+      margin-top: 1em;
+    }
+    li > ol, li > ul {
+      margin-top: 0;
+    }
+    blockquote {
+      margin: 1em 0 1em 1.7em;
+      padding-left: 1em;
+      border-left: 2px solid #e6e6e6;
+      color: #606060;
+    }
+    code {
+      font-family: Menlo, Monaco, Consolas, 'Lucida Console', monospace;
+      font-size: 85%;
+      margin: 0;
+      hyphens: manual;
+    }
+    pre {
+      margin: 1em 0;
+      overflow: auto;
+    }
+    pre code {
+      padding: 0;
+      overflow: visible;
+      overflow-wrap: normal;
+    }
+    .sourceCode {
+     background-color: transparent;
+     overflow: visible;
+    }
+    hr {
+      border: none;
+      border-top: 1px solid #1a1a1a;
+      height: 1px;
+      margin: 1em 0;
+    }
+    table {
+      margin: 1em 0;
+      border-collapse: collapse;
+      width: 100%;
+      overflow-x: auto;
+      display: block;
+      font-variant-numeric: lining-nums tabular-nums;
+    }
+    table caption {
+      margin-bottom: 0.75em;
+    }
+    tbody {
+      margin-top: 0.5em;
+      border-top: 1px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+    }
+    th {
+      border-top: 1px solid #1a1a1a;
+      padding: 0.25em 0.5em 0.25em 0.5em;
+    }
+    td {
+      padding: 0.125em 0.5em 0.25em 0.5em;
+    }
+    header {
+      margin-bottom: 4em;
+      text-align: center;
+    }
+    #TOC li {
+      list-style: none;
+    }
+    #TOC ul {
+      padding-left: 1.3em;
+    }
+    #TOC > ul {
+      padding-left: 0;
+    }
+    #TOC a:not(:hover) {
+      text-decoration: none;
+    }
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+    /* CSS for syntax highlighting */
+    html { -webkit-text-size-adjust: 100%; }
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+        color: #aaaaaa;
+      }
+    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+    div.sourceCode
+      {   }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+    code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+    code span.at { color: #7d9029; } /* Attribute */
+    code span.bn { color: #40a070; } /* BaseN */
+    code span.bu { color: #008000; } /* BuiltIn */
+    code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+    code span.ch { color: #4070a0; } /* Char */
+    code span.cn { color: #880000; } /* Constant */
+    code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+    code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+    code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+    code span.dt { color: #902000; } /* DataType */
+    code span.dv { color: #40a070; } /* DecVal */
+    code span.er { color: #ff0000; font-weight: bold; } /* Error */
+    code span.ex { } /* Extension */
+    code span.fl { color: #40a070; } /* Float */
+    code span.fu { color: #06287e; } /* Function */
+    code span.im { color: #008000; font-weight: bold; } /* Import */
+    code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+    code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+    code span.op { color: #666666; } /* Operator */
+    code span.ot { color: #007020; } /* Other */
+    code span.pp { color: #bc7a00; } /* Preprocessor */
+    code span.sc { color: #4070a0; } /* SpecialChar */
+    code span.ss { color: #bb6688; } /* SpecialString */
+    code span.st { color: #4070a0; } /* String */
+    code span.va { color: #19177c; } /* Variable */
+    code span.vs { color: #4070a0; } /* VerbatimString */
+    code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+  </style>
+</head>
+<body>
+<h1
+id="building-and-deploying-a-full-stack-react-express-postgres-app">Building
+and Deploying a Full-Stack React + Express + Postgres App</h1>
+<p>This article walks step by step through setting up a modern web app,
+explaining how each technology works individually, as well as how they
+all integrate. The First section sets up a fresh development
+environment, and the second gets the app in production using a Digital
+Ocean droplet and a custom Linux server.</p>
+<h2 id="quick-start">Quick Start</h2>
+<p>If you just want the project, run the following to get a skeleton app
+on your system. Keep reading for a more detailed explanation of each
+step and technologies involved</p>
+<div class="sourceCode" id="cb1"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a new project directory</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">mkdir</span> project_name <span class="co"># Replace with actual project name</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> project_name</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Clone repo</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="co"># The period at the end here clones the code into the current directory without creating a directory called &#39;react-app-template&#39;</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> clone https://github.com/MatthewdeHaas/react-app-template.git . </span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="fu">rm</span> <span class="at">-rf</span> .git <span class="co"># .gitignore should be ok to keep</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> init <span class="co"># Assuming you are using git; link to your remote as normal from here</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Install dependencies</span></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="ex">npm</span> install</span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> client</span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a><span class="ex">npm</span> install</span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> ../server</span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a><span class="ex">npm</span> install</span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a><span class="co"># Setup database</span></span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a><span class="ex">brew</span> install postgresql <span class="co"># If you don&#39;t have postgres already</span></span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a><span class="ex">brew</span> services start postgresql <span class="co"># &#39;restart&#39; instead of &#39;start&#39; if the process is already on</span></span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a><span class="ex">psql</span> <span class="at">-d</span> postgres</span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a><span class="ex">CREATE</span> DATABASE database_name<span class="kw">;</span> <span class="co"># change to whatever name you want for your database</span></span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a><span class="ex">\c</span> database_name<span class="kw">;</span> <span class="co"># Connect to the database you created</span></span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a><span class="ex">\du</span> <span class="co"># note who has superuser privileges when configuring .env below</span></span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a><span class="co"># Create and configure .env</span></span>
+<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span> <span class="op">&gt;</span> .env <span class="op">&lt;&lt;EOL</span></span>
+<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a><span class="st">DB_USER=postgres        # or your role from </span><span class="dt">\d</span><span class="st">u</span></span>
+<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a><span class="st">DB_PASSWORD=            # leave blank if not set</span></span>
+<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a><span class="st">DB_HOST=localhost</span></span>
+<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a><span class="st">DB_PORT=5432</span></span>
+<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a><span class="st">DB_NAME=database_name   # match the one you created - </span><span class="dt">\l</span><span class="st"> to list all databases</span></span>
+<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a><span class="op">EOL</span></span>
+<span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a><span class="co"># Run servers concurrently (ensure no other processes are running on these ports)</span></span>
+<span id="cb1-36"><a href="#cb1-36" aria-hidden="true" tabindex="-1"></a><span class="ex">npm</span> run dev</span></code></pre></div>
+<h2 id="initial-development-setup">1. Initial Development Setup</h2>
+<h3 id="pulling-the-app">1.1 Pulling the app</h3>
+<p>Pull the skeleton app I created into your directory of choice</p>
+<div class="sourceCode" id="cb2"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mkdir</span> new_project</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> new_project</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> clone https://github.com/MatthewdeHaas/react-app-template.git . </span></code></pre></div>
+<p>Assuming you want a separate version control for this new project, it
+is advised to remove the version control from the skeleton app and
+create your own</p>
+<div class="sourceCode" id="cb3"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">rm</span> <span class="at">-rf</span> .git</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> init</span></code></pre></div>
+<p><code>.gitignore</code> is fine to keep, although feel free to
+inspect/edit it. Create a remote for the project and connect as usual
+from here.</p>
+<p>npm packages have been omitted from version control, meaning you must
+run <code>npm install</code> in the following three directories:</p>
+<ul>
+<li>Root (<code>/</code>) – installs project-level dev tools and
+scripts<br />
+</li>
+<li><code>/client</code> – installs React + Tailwind dependencies<br />
+</li>
+<li><code>/server</code> – installs Express + database dependencies</li>
+</ul>
+<h3 id="database-setup">1.2 Database setup</h3>
+<p>This app uses postgres. Install it and run the service via
+Homebrew</p>
+<div class="sourceCode" id="cb4"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="ex">brew</span> install postgresql</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="ex">brew</span> services start postgresql</span></code></pre></div>
+<p>Enter the postgres shell and create a new database</p>
+<div class="sourceCode" id="cb5"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="ex">psql</span> <span class="at">-d</span> postgres</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="ex">CREATE</span> DATABASE my_app<span class="kw">;</span></span></code></pre></div>
+<p>Note that <code>\l</code> lists the available databases (should see
+the new one you made here), <code>\c database_name</code> connects you
+to database_name, and <code>\dt</code> shows you table information on
+the database you are currently connected to. The database you are
+connected to is displayed before each line in psql. Note that you can
+run any valid postgres command in the terminal, so create any table you
+need for your app here (or via your schema).</p>
+<p>Create a user with privileges for the database</p>
+<div class="sourceCode" id="cb6"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="ex">CREATE</span> USER app_user WITH PASSWORD <span class="st">&#39;strong_password&#39;</span><span class="kw">;</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="ex">GRANT</span> ALL PRIVILEGES ON DATABASE my_app TO app_user<span class="kw">;</span></span></code></pre></div>
+<p>Create a file in the project root called <code>.env</code>. The above
+code will be referencing this file. This is done to ensure sensitive
+information is not on GitHub. This heavily implies that this file should
+appear in <code>.gitignore</code>. Put this in the <code>.env</code>
+file and replace the with the database info you just setup with</p>
+<div class="sourceCode" id="cb7"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="va">DATABASE_URL</span><span class="op">=</span>postgres://app_user:strong_password@localhost:5432/my_app</span></code></pre></div>
+<p>This is simpler than what is done in the quick start, where the
+username, password, port, etcetera are given as separate values. The
+above format is simpler (IMO), safer (password protected), and is
+usually required by third party production servers such as Heroku or
+Railway.</p>
+<h3 id="running-the-app">1.3 Running the app</h3>
+<p>In <em>development</em>, a React dev server, as well as a Node
+server, must be listening on separate ports. This is not the case in
+production, as will be explained in the section on front end. This
+project is configured to run both of these ports concurrently. From the
+root directory, run:</p>
+<div class="sourceCode" id="cb8"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="ex">npm</span> run dev</span></code></pre></div>
+<p>A localhost window should open on the port running the React dev
+server and the app is ready to code.</p>
+<h2 id="back-end-structure">2. Back End Structure</h2>
+<h3 id="express-node">2.1 Express + Node</h3>
+<p>Node is a JavaScript runtime environment with a built in web server.
+It opens a TCP socket and can directly accept/send requests without the
+need for a wsgi server. It’s popular due to its robust ecosystem,
+asynchrony support, scalability, and standardizing a single programming
+language for the front and back end. Since Node acts as the back end, it
+must be always be running. Note that <code>npm run dev</code> is
+configured to run both the React dev server and the Node server. It’s
+important to know that these are different ports serving different
+purposes. React Doesn’t actually need a separate React dev server in
+production, but this will be explained further in the React section.</p>
+<p>Express is a library that makes writing CRUD operations easier than
+with with Node alone. See the CRUD section for an example of a GET
+request in Express.</p>
+<h3 id="cors">2.2 CORS</h3>
+<p>This project uses something called cross origin resource sharing
+(CORS). This library allows for the React dev server to request data
+from the Node server. This is required because browsers enforce a single
+origin policy (SOP), so a server can’t access another server from a
+client’s browser. This prevents a malicious website from using a
+client’s cookies or something on another website, but also causes
+difficulty when developing in an environment such as this. The only way
+SOP can be overwritten is when the server explicitly states that a
+particular server can send requests. This is what CORS does. You’ll
+notice in one of the package files this is made explicit as it
+references the port the React dev server is listening on, meaning this
+is the only server that the Node server has permitted to share resources
+with cross origin.</p>
+<h3 id="crud">2.3 CRUD</h3>
+<p>As mentioned, this app uses Express. Here is an example of a GET
+request:</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>app<span class="op">.</span><span class="fu">get</span>(<span class="st">&#39;/api/users&#39;</span><span class="op">,</span> authenticateToken<span class="op">,</span> <span class="kw">async</span> (req<span class="op">,</span> res) <span class="kw">=&gt;</span> {</span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> result <span class="op">=</span> <span class="cf">await</span> pool<span class="op">.</span><span class="fu">query</span>(<span class="st">&#39;SELECT id, name FROM users&#39;</span>)<span class="op">;</span></span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>  res<span class="op">.</span><span class="fu">json</span>(result<span class="op">.</span><span class="at">rows</span>)<span class="op">;</span></span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>})<span class="op">;</span></span></code></pre></div>
+<pre><code></code></pre>
+<p>There are three parameters to this function:</p>
+<ul>
+<li>The first is the path. Typically you use the convention
+<code>/api/*</code>, as it allows for requests to be proxied directly to
+node in production. See the section on production for more details</li>
+<li>The second is middleware (optional), which is an arbitrarily long
+list of functions that can potentially return a different value than
+what is in the body of the get function. See the below section on
+middleware for more details.</li>
+<li>The third is the handler. This runs after all the middleware has
+passed and is the body of the method call. This is where database
+reads/writes are done and a response is sent back to the client.</li>
+</ul>
+<h3 id="middleware">2.4 Middleware</h3>
+<p>As mentioned above, CRUD functions can have middleware. These are
+functions with the signature <code>f(req, res, next)</code> and there
+can be as many as one would like. req represents the incoming request,
+res is the response object you send back, and next is a function that
+passes control to the next middleware or the handler. In this example I
+chose an authentication middleware function, and you can imagine it
+would call next and proceed to the handler only if it successfully
+authenticated the user that hit the endpoint. If it didn’t, the handler
+would not have run and an authentication error would be returned from
+this hypothetical middleware function.</p>
+<p>In addition, there are some lines that read:</p>
+<div class="sourceCode" id="cb11"><pre
+class="sourceCode js"><code class="sourceCode javascript"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>app<span class="op">.</span><span class="fu">use</span>(express<span class="op">.</span><span class="fu">json</span>())<span class="op">;</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>app<span class="op">.</span><span class="fu">use</span>(<span class="fu">cors</span>())<span class="op">;</span></span></code></pre></div>
+<p>This middleware runs on every endpoint. This is common for JSON
+parsing and CORS, since most routes need them. This is essentially a
+substitute for passing the function as middleware into every CRUD method
+parameter.</p>
+<h2 id="front-end">3. Front End</h2>
+<h3 id="tailwind">3.1 Tailwind</h3>
+<p>The project uses tailwind, which is a CSS framework that allows CSS
+to be written in HTML elements. No additional setup is needed as it was
+installed as a client side npm package. Tailwind is perfect for rapid
+development/prototyping and doesn’t always require extra configuration.
+Nonetheless, you can configure its default values, such as the default
+breakpoint pixel values, custom colours, more nuanced animations,
+etcetera. You can always write vanilla CSS as well, just link it in
+<code>index.html</code> as usual.</p>
+<h3 id="react">3.2 React</h3>
+<p>This project uses React, which is a JavaScript library that renders
+HTML dynamically by running client side JavaScript. React uses a nested
+component model, which is a collection of reusable HTML-like elements
+called React components. These components are written in
+<code>.jsx</code> files, which have a similar feel to writing plain
+HTML, only they compile to JavaScript at build time and allow one to
+handle client side swaps and AJAX requests with pure JavaScript. Note
+that TypeScript has become more popular for its type safety and improved
+debugging experience. These are simply <code>.tsx</code> files, which
+doesn’t change anything conceptually, but perhaps important to mention
+to avoid confusion.</p>
+<p>React is often used to build single page applications (SPA). When a
+client hits a route, the same singular HTML page is always returned
+(usually <code>index.html</code> with all the metadata). The React
+Router library looks at this endpoint and “hydrates” the DOM with HTML
+based on the React components that are written and how the router is
+configured to serve whichever components. At build time, these
+components are bundled and minified into a single JavaScript file, which
+is what is run in production. The react dev server allows for
+<code>.jsx</code> files to be in the file system and the app still run
+as if it were built. It’s important to note that the React dev server is
+not relevant in production, as React doesn’t server content in
+production, only the server does, whether that’s Node or
+Nginx/Apache.</p>
+<p>All front end code exists in the <code>/client</code> directory. In
+here you’ll see the standard packages installed via
+<code>npm install</code>, as well as tailwind config files. The
+<code>/public</code> file shouldn’t need to be touched apart from
+updating app metadata. This directory is where the
+<code>index.html</code> file exists that the app serves in adherences to
+the SPA structure. <code>/src</code> contains all of the React content.
+Here’s the structure:</p>
+<ul>
+<li><strong>index.css:</strong> contains tailwind config details as well
+as a few custom css classes</li>
+<li><strong>index.js:</strong> The parent file for all proceeding
+components. This is where React connects to the “root” element in
+<code>index.html</code> that hydrates the DOM</li>
+<li><strong>App.jsx:</strong> This is the first of .jsx files. It is a
+container for the app and is typically where routing is handled. Notice
+at the bottom, the component, or the function, must be exported. This is
+the convention. It must then be imported in another file in order for it
+to be used. In index.js, it is imported and called like it’s an HTML
+component (React component in this case)</li>
+</ul>
+<p>This is the main hierarchy (<code>index.html</code> &lt;-
+<code>index.js</code> &lt;- <code>App.jsx</code>). The rest is just
+nesting components in the App.jsx element. This is analogous to creating
+nested html.</p>
+<h3 id="http-requests---connecting-the-front-end-to-the-back">3.3 HTTP
+Requests - Connecting the Front End to the Back</h3>
+<p>Typically one uses the JavaScript Fetch API in a React component,
+which is an asynchronous resource for making HTTP requests. JSON is the
+typical response, and React components are built based on this response.
+Unlike non-SPAs, HTML is rarely returned. Instead, part of the fetch
+request is writing code for what happens after the request returns a
+response. This is where React does any DOM manipulation, it needs to.
+Instead of the response returning HTML, it tells the React code how to
+update the UI based on how the fetch response handler is written. Here’s
+an example to make everything clear. This is a function inside of a
+React component that might be triggered by a button. It sends a GET
+request, then if the response is valid, changes the user hook to reflect
+the new data that was received as a response. Any error is handled
+accordingly as well</p>
+<div class="sourceCode" id="cb12"><pre
+class="sourceCode jsx"><code class="sourceCode javascriptreact"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> [users<span class="op">,</span> setUsers] <span class="op">=</span> <span class="fu">useState</span>([])<span class="op">;</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> [loading<span class="op">,</span> setLoading] <span class="op">=</span> <span class="fu">useState</span>(<span class="kw">false</span>)<span class="op">;</span></span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> handleFetchUsers <span class="op">=</span> () <span class="kw">=&gt;</span> {</span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>    <span class="fu">setLoading</span>(<span class="kw">true</span>)<span class="op">;</span></span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a>    <span class="fu">fetch</span>(<span class="st">&#39;http://localhost:5001/api/users&#39;</span>)</span>
+<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a>      <span class="op">.</span><span class="fu">then</span>(res <span class="kw">=&gt;</span> res<span class="op">.</span><span class="fu">json</span>())</span>
+<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a>      <span class="op">.</span><span class="fu">then</span>(data <span class="kw">=&gt;</span> {</span>
+<span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a>        <span class="fu">setUsers</span>(data)<span class="op">;</span></span>
+<span id="cb12-10"><a href="#cb12-10" aria-hidden="true" tabindex="-1"></a>        <span class="fu">setLoading</span>(<span class="kw">false</span>)<span class="op">;</span></span>
+<span id="cb12-11"><a href="#cb12-11" aria-hidden="true" tabindex="-1"></a>      })</span>
+<span id="cb12-12"><a href="#cb12-12" aria-hidden="true" tabindex="-1"></a>      <span class="op">.</span><span class="fu">catch</span>(err <span class="kw">=&gt;</span> {</span>
+<span id="cb12-13"><a href="#cb12-13" aria-hidden="true" tabindex="-1"></a>        <span class="bu">console</span><span class="op">.</span><span class="fu">error</span>(err)<span class="op">;</span></span>
+<span id="cb12-14"><a href="#cb12-14" aria-hidden="true" tabindex="-1"></a>        <span class="fu">setLoading</span>(<span class="kw">false</span>)<span class="op">;</span></span>
+<span id="cb12-15"><a href="#cb12-15" aria-hidden="true" tabindex="-1"></a>      })<span class="op">;</span></span>
+<span id="cb12-16"><a href="#cb12-16" aria-hidden="true" tabindex="-1"></a>  }<span class="op">;</span></span></code></pre></div>
+<p>For completion sake, here’s the return block implemented to achieve
+the above behaviour:</p>
+<div class="sourceCode" id="cb13"><pre
+class="sourceCode jsx"><code class="sourceCode javascriptreact"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> (</span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>    <span class="kw">&lt;div&gt;</span></span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>      <span class="kw">&lt;h2&gt;</span>User List<span class="kw">&lt;/h2&gt;</span></span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>      <span class="kw">&lt;button</span> <span class="ot">onClick</span><span class="op">=</span><span class="va">{</span>handleFetchUsers<span class="va">}</span><span class="kw">&gt;</span></span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a>        Load Users</span>
+<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a>      <span class="kw">&lt;/button&gt;</span></span>
+<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a>      <span class="va">{</span>loading <span class="op">&amp;&amp; </span><span class="kw">&lt;p&gt;</span>Loading...<span class="kw">&lt;/p&gt;</span><span class="va">}</span></span>
+<span id="cb13-10"><a href="#cb13-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-11"><a href="#cb13-11" aria-hidden="true" tabindex="-1"></a>      <span class="kw">&lt;ul&gt;</span></span>
+<span id="cb13-12"><a href="#cb13-12" aria-hidden="true" tabindex="-1"></a>        <span class="va">{</span>users<span class="op">.</span><span class="fu">map</span>(user <span class="kw">=&gt;</span> (</span>
+<span id="cb13-13"><a href="#cb13-13" aria-hidden="true" tabindex="-1"></a>          <span class="kw">&lt;li</span> <span class="ot">key</span><span class="op">=</span><span class="va">{</span>user<span class="op">.</span><span class="at">id</span><span class="va">}</span><span class="kw">&gt;</span> <span class="va">{</span>user<span class="op">.</span><span class="at">name</span><span class="va">}</span><span class="kw">&lt;/li&gt;</span></span>
+<span id="cb13-14"><a href="#cb13-14" aria-hidden="true" tabindex="-1"></a>        ))<span class="va">}</span></span>
+<span id="cb13-15"><a href="#cb13-15" aria-hidden="true" tabindex="-1"></a>      <span class="kw">&lt;/ul&gt;</span></span>
+<span id="cb13-16"><a href="#cb13-16" aria-hidden="true" tabindex="-1"></a>    <span class="kw">&lt;/div&gt;</span></span>
+<span id="cb13-17"><a href="#cb13-17" aria-hidden="true" tabindex="-1"></a>  )<span class="op">;</span></span></code></pre></div>
+<pre><code></code></pre>
+<h2 id="high-level-diagram">4. High level diagram</h2>
+<p>Here’s a diagram of the flow of data that should help bring these
+technologies together:</p>
+<p>Browser &lt;–&gt; React Dev Server (3000) &lt;–&gt; Express API
+(5000) &lt;–&gt; Postgres DB</p>
+<h2 id="production">5. Production</h2>
+<p>I am going to use Digital Ocean with Nginx as a http server and
+reverse proxy. Although hosting services like Firebase or Heroku are
+stable and convient, walking through setting up a Linux server from
+scratch I believe is more edifying and rewarding. It also gives more
+flexibility on what you can put on the server, including subdomains and
+additional websites all together.</p>
+<h3 id="digital-ocean-droplet">5.1 Digital Ocean droplet</h3>
+<p>Create a Digital Ocean account and purcahse a droplet congruent with
+your needs. The $4-6/month is plenty for a small scale web app. It
+should have prompted you to create an SSH key. This will make logging in
+very easy. Keep the droplet dashboard open or take note of the IPv4
+addresses of the droplet.</p>
+<h3 id="domain-name">5.2 Domain name</h3>
+<p>Every computer has a unique address assigned to it called an ip
+address. When a client requests data from a server, it is asking for
+data from the ip address on the internet that has the data of the
+website they are interested in. However, since these addresses lack
+memorability, they are replaced with a domain name. There exists a
+record somewhere that maps these domain names (example.com) to ip
+addresses of actual computers.</p>
+<p>You need one of these when going into production. Choose a provider
+and purchase. There should be some way of managing the domain you have
+purchased. Create an A record, which is how your domain name relates to
+the server you are hosting your web site code on. This A record should
+include a ip address. Copy the IPv4 address from your Digital Ocean
+Droplet here.</p>
+<h3 id="connecting-to-the-server">5.3 Connecting to the server</h3>
+<p>SSH into your droplet</p>
+<div class="sourceCode" id="cb15"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ssh</span> root@your.ip.address <span class="co"># insert your IPv4 from your droplet</span></span></code></pre></div>
+<p>This should put you in a Linux terminal. Run the following to update
+the package manager</p>
+<div class="sourceCode" id="cb16"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="ex">apt</span> update <span class="kw">&amp;&amp;</span> <span class="ex">apt</span> upgrade <span class="at">-y</span></span></code></pre></div>
+<h3 id="installing-dependencies">5.4 Installing dependencies</h3>
+<div class="sourceCode" id="cb17"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="ex">apt</span> install <span class="at">-y</span> nodejs npm nginx postgresql</span></code></pre></div>
+<h3 id="add-app-code">5.5 Add app code</h3>
+<p>It is convention on Linux machines to store web servers in
+<code>/var/www/</code>. Go there and pull the code from your remote</p>
+<div class="sourceCode" id="cb18"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> /var/www</span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> clone https://github.com/yourusername/your_project.git</span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> your_project</span></code></pre></div>
+<p>Follow the same process for installing node modules as in
+development. Note that you don’t need a root-level
+<code>npm install</code>, as that was for tying together dev and prod
+when they were separate processes</p>
+<div class="sourceCode" id="cb19"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> server</span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a><span class="ex">npm</span> install</span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> ../client</span>
+<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a><span class="ex">npm</span> install</span>
+<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a><span class="ex">npm</span> run build <span class="co"># builds the .jsx files into 1-2 js files. Will create build/ directory</span></span></code></pre></div>
+<h3 id="configuring-postgres">5.6 Configuring Postgres</h3>
+<p>Postgres runs on a server, unlike sqlite, which is a file that is
+written/read on the system. Postgres runs as its own service manages its
+own directory. This negates the worry about file write permissions.
+Since you interact with postgres over the TCP connection it opens,
+permissions are a matter of roles and grants.</p>
+<p>Open the psql shell and create a new database</p>
+<div class="sourceCode" id="cb20"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> psql <span class="at">-d</span> postgres</span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a><span class="ex">CREATE</span> DATABASE my_app<span class="kw">;</span></span></code></pre></div>
+<p>Create a dedicated database user and grant it permissions</p>
+<div class="sourceCode" id="cb21"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="ex">CREATE</span> USER app_user WITH PASSWORD <span class="st">&#39;strong_password&#39;</span><span class="kw">;</span></span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a><span class="ex">GRANT</span> ALL PRIVILEGES ON DATABASE my_app TO app_user<span class="kw">;</span></span></code></pre></div>
+<p>Configure .env</p>
+<div class="sourceCode" id="cb22"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="va">DATABASE_URL</span><span class="op">=</span>postgres://app_user:strong_password@localhost:5432/my_app</span></code></pre></div>
+<p>Note that <code>server.js</code> references this file and thus does
+not need to be changed. Test if the user can connect</p>
+<div class="sourceCode" id="cb23"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="ex">psql</span> <span class="at">-U</span> myapp_user <span class="at">-d</span> myapp <span class="at">-h</span> localhost <span class="at">-W</span></span></code></pre></div>
+<h3 id="configuring-nginx">5.7 Configuring Nginx</h3>
+<p>Create a server block with the following</p>
+<div class="sourceCode" id="cb24"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="ex">vim</span> /etc/nginx/sites-available/your_project</span></code></pre></div>
+<p>Paste the following in and replace with your information:</p>
+<div class="sourceCode" id="cb25"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a><span class="ex">server</span> {</span>
+<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a>    <span class="ex">listen</span> 80<span class="kw">;</span></span>
+<span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a>    <span class="ex">server_name</span> example.com www.example.com<span class="kw">;</span></span>
+<span id="cb25-5"><a href="#cb25-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-6"><a href="#cb25-6" aria-hidden="true" tabindex="-1"></a>    <span class="ex">root</span> /var/www/app/client/build<span class="kw">;</span></span>
+<span id="cb25-7"><a href="#cb25-7" aria-hidden="true" tabindex="-1"></a>    <span class="ex">index</span> index.html<span class="kw">;</span></span>
+<span id="cb25-8"><a href="#cb25-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-9"><a href="#cb25-9" aria-hidden="true" tabindex="-1"></a>    <span class="ex">location</span> / {</span>
+<span id="cb25-10"><a href="#cb25-10" aria-hidden="true" tabindex="-1"></a>        <span class="ex">try_files</span> <span class="va">$uri</span> /index.html<span class="kw">;</span></span>
+<span id="cb25-11"><a href="#cb25-11" aria-hidden="true" tabindex="-1"></a>    <span class="er">}</span></span>
+<span id="cb25-12"><a href="#cb25-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-13"><a href="#cb25-13" aria-hidden="true" tabindex="-1"></a>    <span class="ex">location</span> /api/ {</span>
+<span id="cb25-14"><a href="#cb25-14" aria-hidden="true" tabindex="-1"></a>        <span class="ex">proxy_pass</span> http://localhost:5000/<span class="kw">;</span></span>
+<span id="cb25-15"><a href="#cb25-15" aria-hidden="true" tabindex="-1"></a>        <span class="ex">proxy_http_version</span> 1.1<span class="kw">;</span></span>
+<span id="cb25-16"><a href="#cb25-16" aria-hidden="true" tabindex="-1"></a>        <span class="ex">proxy_set_header</span> Upgrade <span class="va">$http_upgrade</span><span class="kw">;</span></span>
+<span id="cb25-17"><a href="#cb25-17" aria-hidden="true" tabindex="-1"></a>        <span class="ex">proxy_set_header</span> Connection <span class="st">&#39;upgrade&#39;</span><span class="kw">;</span></span>
+<span id="cb25-18"><a href="#cb25-18" aria-hidden="true" tabindex="-1"></a>        <span class="ex">proxy_set_header</span> Host <span class="va">$host</span><span class="kw">;</span></span>
+<span id="cb25-19"><a href="#cb25-19" aria-hidden="true" tabindex="-1"></a>        <span class="ex">proxy_cache_bypass</span> <span class="va">$http_upgrade</span><span class="kw">;</span></span>
+<span id="cb25-20"><a href="#cb25-20" aria-hidden="true" tabindex="-1"></a>    <span class="er">}</span></span>
+<span id="cb25-21"><a href="#cb25-21" aria-hidden="true" tabindex="-1"></a><span class="er">}</span></span></code></pre></div>
+<p>Notice how the <code>/api/</code> location directly proxies to node,
+and the generic <code>/</code> location first tries to find a static
+file on the system, and if it doesn’t, it serves
+<code>index.html</code>. This means the page hit a route. This is the
+core of an SPA. React’s router takes care of hydrating this html shell
+dynamically.</p>
+<p>Create a symbolic link</p>
+<div class="sourceCode" id="cb26"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ln</span> <span class="at">-s</span> /etc/nginx/sites-available/app /etc/nginx/sites-enabled/</span></code></pre></div>
+<p>Test Nginx. If successful, restart</p>
+<div class="sourceCode" id="cb27"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="ex">nginx</span> <span class="at">-t</span></span>
+<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a><span class="ex">systemctl</span> restart nginx</span></code></pre></div>
+<h3 id="running-the-node-server">5.8 Running the Node server</h3>
+<p>You need a process manager for Node so it won’t crash on an error or
+when you leave your SSH session. This is the equivalent of creating a
+systemd service file</p>
+<div class="sourceCode" id="cb28"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="ex">npm</span> install <span class="at">-g</span> pm2</span>
+<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> /var/www/your_project/server</span>
+<span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a><span class="ex">pm2</span> start server.js <span class="at">--name</span> app</span>
+<span id="cb28-4"><a href="#cb28-4" aria-hidden="true" tabindex="-1"></a><span class="ex">pm2</span> startup systemd</span>
+<span id="cb28-5"><a href="#cb28-5" aria-hidden="true" tabindex="-1"></a><span class="ex">pm2</span> save</span></code></pre></div>
+<h3 id="adding-https">5.9 Adding HTTPS</h3>
+<p>You need a third party SSL certificate to serve content via HTTPS.
+LetsEncrypt offers these. Install and use Certbot</p>
+<div class="sourceCode" id="cb29"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="ex">apt</span> install <span class="at">-y</span> certbot python3-certbot-nginx</span>
+<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a><span class="ex">certbot</span> <span class="at">--nginx</span> <span class="at">-d</span> example.com <span class="at">-d</span> www.example.com</span></code></pre></div>
+<p>If everything worked correctly, you should be able to access your
+React app on the internet like any other site.</p>
+</body>
+</html>

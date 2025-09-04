@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+
+{% block body %}
+
+  <section hx-boost="false" class="blog-list">
+    <h2>Articles</h2>
+     <!-- TODO: Add CSS  -->
+    <a href="{{ url_for('home.blog', blog="React_Project_Setup") }}">React Project Setup</a>
+
+  </section>
+
+{% endblock %}
