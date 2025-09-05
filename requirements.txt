@@ -1,7 +1,13 @@
+beautifulsoup4==4.13.5
 blinker==1.9.0
+bs4==0.0.2
 click==8.2.1
 Flask==3.1.1
 itsdangerous==2.2.0
 Jinja2==3.1.6
+markup==0.2.2
 MarkupSafe==3.0.2
+pathlib==1.0.1
+soupsieve==2.8
+typing_extensions==4.15.0
 Werkzeug==3.1.3

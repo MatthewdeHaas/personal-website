@@ -1,4 +1,7 @@
+import os
 from flask import Blueprint, url_for, render_template
+from pathlib import Path
+from bs4 import BeautifulSoup
 
 home = Blueprint('home', __name__, template_folder='templates')
 
@@ -20,12 +23,22 @@ def projects():
 
 @home.route("/blogs")
 def blogs():
-    return render_template("blogs.html")
+
+    posts = [name.replace(".html", "") for name in os.listdir("app/static/media/blogs")]
+
+    return render_template("blog-base.html", posts=posts)
 
 
+@home.route("/blog/<post>")
+def blog(post):
+   
+    file = Path(f"app/static/media/blogs/{post}.html")
+    if not file.exists():
+        return "Post not found", 404
 
-@home.route("/blog/<blog>")
-def blog(blog):
-    # TODO: extend base.html, perhaps from this funciton call
-    return render_template(f"blogs/{blog}.html")
+    content = file.read_text(encoding="utf-8")   
+
+    return render_template("blog.html", content=content) 
+
+
 
