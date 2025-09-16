@@ -14,15 +14,36 @@
       </header>
 
       <div class="project-media">
-        <img src="{{ url_for('static', filename='...') }}" alt="Screenshot of...">
+        <img src="{{ url_for('static', filename='static/media/images/finance-dashboard.png') }}" alt="Screenshot of...">
+        <img src="{{ url_for('static', filename='static/media/images/finance-accounts.png') }}" alt="Screenshot of...">
+        <img src="{{ url_for('static', filename='static/media/images/finance-budgets.png') }}" alt="Screenshot of...">
       </div>
 
       <div class="project-details">
 
-        <i>Sept 3, 2025 - Sept 15, 2025</i>
+        <i>Sept 3, 2025 – Sept 15, 2025</i>
         <p>
-          A quick web app I created to get familar with a React, Node, PostgreSQL stack.
+          A fully functional web application for personal finance tracking and planning. 
+          Users can register and log in securely with JWT-based authentication, which uses 
+          long-lived refresh tokens and short-lived access tokens. Passwords are stored 
+          as cryptographic hashes to ensure confidentiality. Once logged in, users can:
         </p>
+        <ul class="project-features">
+          <li>Open accounts and create spending categories</li>
+          <li>Record deposits and withdrawals with full transaction history</li>
+          <li>Set category budgets and visualize progress with interactive charts</li>
+          <li>View spending by category with a pie chart</li>
+          <li>Access a dashboard with summaries of savings, spending trends, and monthly breakdowns</li>
+        </ul>
+        <p>
+          The intention behind this project was to gain practical experience building a 
+          single-page application (SPA) with a modern, scalable tech stack. Beyond working 
+          with Flask, React, PostgreSQL, and Nginx, I implemented my own authentication 
+          system, deployed on a self-managed Linux server, and integrated custom data 
+          visualizations. This experience gave me valuable insight into how web 
+          applications function end-to-end, from backend services to user-facing features.
+        </p>
+
 
         <ul class="meta">
           <li><strong>Tech stack:</strong> React, TailwindCSS, Material UI, ApexCharts, Node (Express, bcrypt), PostgreSQL, Nginx, DigitalOcean, pm2</li>
@@ -39,19 +60,34 @@
         </h3>
       </header>
 
-      <div class="project-media">
-        <img src="{{ url_for('static', filename='...') }}" alt="Screenshot of...">
-      </div>
-
       <div class="project-details">
 
         <i>July 2025 - Present</i>
         <p>
-          An enterprise web app for the company Meals On the Move's operations automation.
-          Behind the admin password is a dashboard with a form that accepts a google sheet URL and return a zip file with packing slips, labels, and a shopping list as per the company wants them.
-          This is the first project I have ever been contracted to make.
-          Going with this theme, the passwords in the database are encrypted, professionalism was maintained, and the product was tested throughly before delivering.
+          An enterprise web app built for <strong>Meals On the Move</strong> to automate core operations.
+          The project included:
         </p>
+
+        <ul class="project-features">
+          <li>
+            Secure <strong>admin dashboard</strong> protected by encrypted credentials.
+          </li>
+          <li>
+            A <strong>form-based tool</strong> that accepts a Google Sheet URL and returns a 
+            <strong>zip file</strong> containing packing slips, labels, and a shopping list 
+            formatted to company specifications.
+          </li>
+          <li>
+            Professional <strong>development practices</strong> were followed, with a strong 
+            emphasis on reliability and maintainability.
+          </li>
+          <li>
+            The product was <strong>thoroughly tested</strong> before delivery to ensure smooth operations.
+          </li>
+          <li>
+            This was the <strong>first contracted project</strong> I developed and delivered successfully.
+          </li>
+        </ul>
 
         <ul class="meta">
           <li><strong>Tech stack:</strong> Python (Flask, Pandas, bcrypt, ReportLab), JavaScript (HTMX), TailwindCSS, SQLite, Nginx, Gunicorn, DigitalOcean</li>
@@ -69,18 +105,41 @@
       </header>
 
       <div class="project-media">
-        <img src="{{ url_for('static', filename='...') }}" alt="Screenshot of...">
+        <img src="{{ url_for('static', filename='static/media/images/bettt-feed.png') }}" alt="Screenshot of...">
+        <img src="{{ url_for('static', filename='static/media/images/bettt-create.png') }}" alt="Screenshot of...">
+        <img src="{{ url_for('static', filename='static/media/images/bettt-inbox.png') }}" alt="Screenshot of...">
+        <img src="{{ url_for('static', filename='static/media/images/bettt-profile.png') }}" alt="Screenshot of...">
+        <img src="{{ url_for('static', filename='static/media/images/bettt-leaderboard.png') }}" alt="Screenshot of...">
       </div>
 
       <div class="project-details">
 
         <i>May 2025 - June 2025</i>
+          <p>
+            A fully functional <strong>betting web app</strong> that allowed users to 
+            sign up, stake <em>fake tokens</em>, create bets, challenge others, 
+            and settle wagers. Unlike platforms such as 
+            <a target="_blank" href="https://polymarket.com/">Polymarket</a>, 
+            which focus on markets, this app emphasized 
+            <strong>1-vs-1 challenges</strong> where each bet was created by one user 
+            and accepted by exactly one challenger.
+          </p>
+
+          <ul class="project-features">
+            <li>
+              Implemented <strong>user authentication</strong> and token-based staking system.
+            </li>
+            <li>
+              Developed a <strong>front end interface</strong> from scratch and handled 
+              most of the <strong>business logic</strong> and <strong>database queries</strong>.
+            </li>
+            <li>
+              Collaborative project, but I primarily served as the 
+              <strong>full-stack developer</strong>, providing well over 90% contribution
+            </li>
+          </ul>
         <p>
-          A fully functional betting app.
-          Users can signup, create a bet via staking fake tokens, challenge others with fake tokens, be challenged, and settle bets.
-          Similar to <a target="_blank" href="https://polymarket.com/">Polymarket</a>, only instead of markets, users create 1-1 that only one other user can challenge.
-          This project was a collaborative effort, however I assumed a full stack role was responsible for most of the project.
-          Specifically, I wrote the entire front end as well as all the busniess logic and most of the database queries. 
+          As of September 2025, the site has been taken down.
         </p>
 
         <ul class="meta">
@@ -101,17 +160,30 @@
         </h3>
       </header>
 
-      <div class="project-media">
-        <img src="{{ url_for('static', filename='...') }}" alt="Screenshot of...">
-      </div>
-
       <div class="project-details">
 
         <i>November 2024 - March 2025</i>
         <p>
-          A fully functional social media for polls. 
-          Users can signup, create one poll a day, vote on others' polls, and comment their opinons.
-          I was brought on to this project about one month into its development, where I primarily worked on the front end.
+          A fully functional <strong>social media platform for polls</strong>. 
+          Users could sign up, create <em>one poll per day</em>, 
+          vote on polls created by others, and share their opinions through comments.
+        </p>
+
+        <ul class="project-features">
+          <li>
+            Joined the project about one month into development.
+          </li>
+          <li>
+            Contributed primarily to the <strong>front end</strong>, 
+            improving the user experience and interface design.
+          </li>
+          <li>
+            Implemented key features for <strong>poll creation</strong>, 
+            <strong>voting</strong>, and <strong>commenting</strong>.
+          </li>
+        </ul>
+        <p>
+          As of September 2025, the site has been taken down.
         </p>
 
         <ul class="meta">
@@ -133,7 +205,6 @@
       </header>
 
       <div class="project-details">
-
 
         <i>December 2024 - Present</i>
         <p>
@@ -163,22 +234,39 @@
         </h3>
       </header>
 
-      <div class="project-media">
-        <img src="{{ url_for('static', filename='...') }}" alt="Screenshot of...">
-      </div>
 
       <div class="project-details">
 
         <i>November 2024 - December 2024</i>
         <p>
-          This web app displays all of the Canadian varsity athletes, organized by school, that attend universities that use the company SIDEARM Sports.
-          Initally the scope of this project was just my school (UBC), but I realized after looking at other schools, each website had a very similar feel. 
-          It turns out that about 2/3 of Canadian universities use this comapny SIDEARM Sports, so I decided to generalize the program to the rest of these.
-          Only keeping these particular schools allowed for the hard coded html elements used during UBC's web scraping to be reused without any modification, which I thoguht was pretty spectacular.
-          An additional goal for the project was to analyze the faces with a CNN.
-          This did actually work well, but it was too controversial to publish.
-          Deep learning will thus have to wait for another time :(.
+          This project is a web app that aggregates information on Canadian varsity athletes 
+          from universities that use <strong>SIDEARM Sports</strong> platform to host their athletics website. 
+          It began as a tool for my own school (UBC), but I realized that this company uses the exact same
+          format for all schools they are under contract with. This means the web scraping code didn't need to
+          change at all.
         </p>
+
+        <ul class="project-features">
+          <li>
+            Initially built for <strong>UBC</strong>, the scraper was later generalized 
+            to include all Canadian universities using SIDEARM Sports (about two-thirds 
+            of them), without requiring changes to the underlying scraping logic.
+          </li>
+          <li>
+            Athlete data is <strong>organized by school</strong> for easier browsing 
+            and comparison across institutions.
+          </li>
+          <li>
+            The consistent structure of SIDEARM Sports websites allowed the original 
+            hard-coded HTML parsing built for UBC to be reused across multiple schools 
+            without modification.
+          </li>
+          <li>
+            As an experimental extension, I implemented a <strong>CNN for facial analysis</strong> 
+            on athlete headshots. The model worked well technically, but due to the 
+            sensitive nature of the application, this feature was not released publicly.
+          </li>
+        </ul>
 
         <ul class="meta">
           <li><strong>Tech stack:</strong> Python (Flask, beautifulsoup4), TailwindCSS, SQLite, Nginx, Gunicorn, DigitalOcean</li>
@@ -202,13 +290,33 @@
 
         <i>July 2024 - August 2024</i>
         <p>
-          This project automates the process of logging water pressure levels by hand.
-          Working for a construction copmany over a summer, I was breifly tasked with monitoring water pressure as work in a comprised area was being performed.
-          There was a website with a handful of graphs, and every ~5 minutes the site would update the levels with data from the server, and I would have to write this level down and report if it exceeded a certain threshold.
-          I immediately wanted to automate this, so I created the following, script in a notepad file. Primarily Javascript, it runs in the Chrome console, fetches data from the server, cleans the data, and creates .csv formmated files that mimmicked the sheets I was tasked with filling out.
-          Apart from automation and saving time, this allowed for water levels to be measured even when the website (but not the API) was down, which was not something that could have been performed prior.
-          The Python code involed is merely for converting the large swath of .csv chained together in the output of the Javascript script into individual .xlxs files on disc.
-          As of last year, the job was finished and the server was shut down.
+          This project automated the manual process of logging water pressure levels for a construction company. 
+          During a summer job, I was tasked with monitoring water pressure in a compromised area and recording 
+          updates every few minutes. To streamline this repetitive task, I developed the following solution:
+        </p>
+
+        <ul class="project-features">
+          <li>
+            A <strong>JavaScript script</strong>, run directly in the Chrome console, which 
+            fetched real-time data from the server’s API, cleaned the data, and generated 
+            <strong>.csv-formatted logs</strong> replicating the paper sheets I was using.
+          </li>
+          <li>
+            The script enabled <strong>automated tracking</strong> even when the website front-end 
+            was down, as long as the API remained available — something not previously possible.
+          </li>
+          <li>
+            A supporting <strong>Python utility</strong> was written to convert large chained 
+            .csv files into individual <strong>.xlsx files</strong> for easier reporting and archival.
+          </li>
+          <li>
+            This project saved time, reduced error risk, and provided a more resilient method 
+            of monitoring water levels.
+          </li>
+        </ul>
+        <p>
+          The job was successfully completed and thus the monitoring server was shut down. 
+          The API is no longer accessible.
         </p>
 
         <ul class="meta">
@@ -230,19 +338,37 @@
       </header>
 
       <div class="project-media">
-        <img src="{{ url_for('static', filename='...') }}" alt="Screenshot of...">
+        <img src="{{ url_for('static', filename='static/media/images/akp-home.png') }}" alt="Screenshot of...">
+        <img src="{{ url_for('static', filename='static/media/images/akp-calc.png') }}" alt="Screenshot of...">
+        <img src="{{ url_for('static', filename='static/media/images/akp-calendar.png') }}" alt="Screenshot of...">
       </div>
 
       <div class="project-details">
 
         <i>January 2024 - February 2024</i>
         <p>
-          This site graphs my personal Strava data via Strava's API. 
-          It also has some utilities for calcualting race paces and basic mileage scheduling. 
-          I had further goals with the project, such as creating a full training and scheduling hub, but I lost intrest.
-          In the past it was being "hosted" locally using vscode's "Live Server" extension as I had yet to learn what a web server was. 
-          Thus, I recently implemented Flask as a web framework and am now hosting it as a subdomain of this site.
+          This project visualizes my personal <strong>Strava</strong> data by connecting 
+          to the Strava API and graphing the results. Alongside data visualization, 
+          it also provides simple utilities for <strong>race pace calculations</strong> 
+          and <strong>mileage scheduling</strong>.
         </p>
+
+        <ul class="project-features">
+          <li>
+            Originally hosted locally through VS Code’s “Live Server” extension 
+            before I understood how web servers worked.
+          </li>
+          <li>
+            Later restructured using <strong>Flask</strong> as a web framework, 
+            which allowed it to be deployed as a <strong>subdomain</strong> of this site.
+          </li>
+          <li>
+            Began as a small set of tools, with the long-term goal of evolving into 
+            a full training and scheduling hub. While I lost interest before reaching 
+            that scope, the project still gave me valuable hands-on experience with 
+            APIs, deployment, and Flask-based app design.
+          </li>
+        </ul>
 
         <ul class="meta">
           <li><strong>Tech stack:</strong> Python (Flask), JavaScript (Chart.js, FullCalendar), TailwindCSS, Nginx, Gunicorn, DigitalOcean</li>
