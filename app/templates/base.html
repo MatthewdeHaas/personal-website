@@ -24,9 +24,6 @@
         Home
       </a>
 
-      <a href="{{ url_for('home.about') }}" class="{% if request.endpoint == 'home.about' %}active{% endif %}">
-       About me
-      </a>
       <a href="{{ url_for('home.projects') }}" class="{% if request.endpoint == 'home.projects' %}active{% endif %}">
        Projects 
       </a>

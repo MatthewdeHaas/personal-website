@@ -76,6 +76,8 @@ p { margin-bottom: 1rem; }
   padding: 1rem;
   border-radius: 8px;
   box-shadow: 1px 1px 5px rgba(0,0,0,0.05);
+  display: flex;
+  flex-direction: column;
 }
 .card img {
   max-width: 100%;
@@ -149,46 +151,49 @@ i {
   font-size: 14px;
 }
 
+/* Blog list wrapper */
 .blog-list {
-    max-width: 900px;
-    display: flex;
-    flex-direction: column;
-    gap: 1.5rem;
-    font-family: Arial, Helvetica, sans-serif;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px));
+  gap: 1.5rem;
+  margin: 2rem 0;
+  padding: 0;
+  list-style: none;
+  justify-content: start; /* snap grid items to the left */
 }
 
-/* Each blog item */
+/* Each blog item (card) */
 .blog-list-item {
-    padding: 1rem 1.5rem;
-    background-color: #ffffff;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
-    transition: all 0.2s ease-in-out;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-between;
-    text-decoration: none;
-    color: #1a1a1a;
-    text-align: center;
+  display: block; /* make the whole card clickable */
+  padding: 1.5rem;
+  background-color: #ffffff;
+  border: 1px solid #e5e7eb; /* subtle border */
+  border-radius: 6px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.04);
+  transition: transform 0.15s ease, box-shadow 0.15s ease, border-color 0.15s ease;
+  text-decoration: none;
+  width: 250%;
+  font-size: 1.25rem;
+  line-height: 1.4;
+  font-weight: 600;
+  margin: 0;
+  color: inherit;
 }
 
-/* Hover effect for each item */
+
+/* Hover effect */
 .blog-list-item:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-    background-color: #f9f9f9;
+  transform: translateY(-4px);
+  border-color: #d1d5db;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  cursor: pointer;
+  color: #1a49ad;
 }
 
-/* Blog title */
-.blog-list-item h3 {
-    margin: 0;
-    font-size: 1.25rem;
-}
-
-/* Optional: date or metadata */
-.blog-list-item .blog-meta {
-    font-size: 0.85rem;
-    color: #777;
+/* Subtle active press effect */
+.blog-list-item:active {
+  transform: translateY(-1px);
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
 }
 
 /* Responsive for smaller screens */

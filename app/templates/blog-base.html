@@ -9,13 +9,7 @@
 
       {% for post in posts %}
 
-        <div class="card">
-
-          <a  class="blog-list-item" href="{{ url_for('home.blog', post=post) }}">{{ post | replace("_", " ") }}</a>
-
-          <p>{{ description }}</p>
-
-        </div>
+        <a  class="blog-list-item" href="{{ url_for('home.blog', post=post) }}">{{ post | replace("_", " ") }}</a>
 
       {% endfor %} 
 
