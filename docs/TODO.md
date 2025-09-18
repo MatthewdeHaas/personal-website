@@ -7,7 +7,7 @@
   - [x] Remove Flask vs. Express test article
   - [x] Improve article list layout
 - [ ] Projects:
-  - [ ] Host bettt as a subdomain and change url
+  - [x] Host bettt as a subdomain and change url
   - [ ] Acquire pictures of polll and remove url
 - [ ] Resume:
   - [ ] Write/polish resume
