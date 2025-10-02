@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Reflection</title>
+  <style>
+    html {
+      color: #1a1a1a;
+      background-color: #fdfdfd;
+    }
+    body {
+      margin: 0 auto;
+      padding-left: 50px;
+      padding-right: 50px;
+      padding-top: 50px;
+      padding-bottom: 50px;
+      hyphens: auto;
+      overflow-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+    }
+    @media (max-width: 600px) {
+      body {
+        font-size: 0.9em;
+        padding: 12px;
+      }
+      h1 {
+        font-size: 1.8em;
+      }
+    }
+    @media print {
+      html {
+        background-color: white;
+      }
+      body {
+        background-color: transparent;
+        color: black;
+        font-size: 12pt;
+      }
+      p, h2, h3 {
+        orphans: 3;
+        widows: 3;
+      }
+      h2, h3, h4 {
+        page-break-after: avoid;
+      }
+    }
+    p {
+      margin: 1em 0;
+    }
+    a {
+      color: #1a1a1a;
+    }
+    a:visited {
+      color: #1a1a1a;
+    }
+    img {
+      max-width: 100%;
+    }
+    svg {
+      height: auto;
+      max-width: 100%;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      margin-top: 1.4em;
+    }
+    h5, h6 {
+      font-size: 1em;
+      font-style: italic;
+    }
+    h6 {
+      font-weight: normal;
+    }
+    ol, ul {
+      padding-left: 1.7em;
+      margin-top: 1em;
+    }
+    li > ol, li > ul {
+      margin-top: 0;
+    }
+    blockquote {
+      margin: 1em 0 1em 1.7em;
+      padding-left: 1em;
+      border-left: 2px solid #e6e6e6;
+      color: #606060;
+    }
+    code {
+      font-family: Menlo, Monaco, Consolas, 'Lucida Console', monospace;
+      font-size: 85%;
+      margin: 0;
+      hyphens: manual;
+    }
+    pre {
+      margin: 1em 0;
+      overflow: auto;
+    }
+    pre code {
+      padding: 0;
+      overflow: visible;
+      overflow-wrap: normal;
+    }
+    .sourceCode {
+     background-color: transparent;
+     overflow: visible;
+    }
+    hr {
+      border: none;
+      border-top: 1px solid #1a1a1a;
+      height: 1px;
+      margin: 1em 0;
+    }
+    table {
+      margin: 1em 0;
+      border-collapse: collapse;
+      width: 100%;
+      overflow-x: auto;
+      display: block;
+      font-variant-numeric: lining-nums tabular-nums;
+    }
+    table caption {
+      margin-bottom: 0.75em;
+    }
+    tbody {
+      margin-top: 0.5em;
+      border-top: 1px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+    }
+    th {
+      border-top: 1px solid #1a1a1a;
+      padding: 0.25em 0.5em 0.25em 0.5em;
+    }
+    td {
+      padding: 0.125em 0.5em 0.25em 0.5em;
+    }
+    header {
+      margin-bottom: 4em;
+      text-align: center;
+    }
+    #TOC li {
+      list-style: none;
+    }
+    #TOC ul {
+      padding-left: 1.3em;
+    }
+    #TOC > ul {
+      padding-left: 0;
+    }
+    #TOC a:not(:hover) {
+      text-decoration: none;
+    }
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+    /* CSS for syntax highlighting */
+    html { -webkit-text-size-adjust: 100%; }
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+        color: #aaaaaa;
+      }
+    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+    div.sourceCode
+      {   }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+    code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+    code span.at { color: #7d9029; } /* Attribute */
+    code span.bn { color: #40a070; } /* BaseN */
+    code span.bu { color: #008000; } /* BuiltIn */
+    code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+    code span.ch { color: #4070a0; } /* Char */
+    code span.cn { color: #880000; } /* Constant */
+    code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+    code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+    code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+    code span.dt { color: #902000; } /* DataType */
+    code span.dv { color: #40a070; } /* DecVal */
+    code span.er { color: #ff0000; font-weight: bold; } /* Error */
+    code span.ex { } /* Extension */
+    code span.fl { color: #40a070; } /* Float */
+    code span.fu { color: #06287e; } /* Function */
+    code span.im { color: #008000; font-weight: bold; } /* Import */
+    code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+    code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+    code span.op { color: #666666; } /* Operator */
+    code span.ot { color: #007020; } /* Other */
+    code span.pp { color: #bc7a00; } /* Preprocessor */
+    code span.sc { color: #4070a0; } /* SpecialChar */
+    code span.ss { color: #bb6688; } /* SpecialString */
+    code span.st { color: #4070a0; } /* String */
+    code span.va { color: #19177c; } /* Variable */
+    code span.vs { color: #4070a0; } /* VerbatimString */
+    code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+  </style>
+</head>
+<body>
+<h1 id="financial-web-app-reflection">Financial Web App Reflection</h1>
+<p>I recently created a web app for tracking financial actions. It
+allows users to login, create accounts, budgets, and transactions, as
+well as visualize their weekly and monthly spending. I was motivated in
+part due to a desire to get a handle on spending, but also as an excuse
+to get my feet wet with a modern web development stack. The stack is
+React, Tailwind, and Material UI on the client side; Node, Express on
+the server side; PostgreSQL as a database; Nginx as a web server and
+reverse proxy; and Digital Ocean as a self-hosted Linux server. Although
+these choices are admittedly arbitrary, they demonstrate broad industry
+acceptance, and similar technologies such as Svelte, MySQL, Django,
+Firebase, etc. would pose little trouble if one wanted to pivot.</p>
+<p>This document will outline every major component that went into the
+app’s development, including how HTTP requests are received and handled
+on the client and server, the React hooks that were used, the database,
+and the production environment.</p>
+<h2 id="request-data-flow">Request Data Flow</h2>
+<h3 id="pages">Pages</h3>
+<p>#### Client: This web app can be considered a single page application
+(SPA), meaning the same HTML page is returned regardless of which
+endpoint is hit. Once this page is rendered, the React Router library
+creates a JSON representation of the browser’s document object model
+(DOM), known as the virtual DOM, compares this with the actual DOM
+(initially empty when hitting endpoints), and injects HTML into the
+rendered page according to the virtual DOM.</p>
+<p>#### Server: In production, the web server is configured to serve the
+single html page for requests that are not static files nor back end
+requests (which would leave endpoints as the remaining option). In this
+app, the Nginx configuration file proxies any endpoint beginning with
+<code>/api</code> to the Node port, serves static files such as images
+or JavaScript directly, and falls back to serving the single HTML
+document <code>index.html</code> in any other case.</p>
+<h3 id="back-end">Back End</h3>
+<h4 id="client">Client:</h4>
+<p>SPAs are appealing in part due to their lack of page loads. This is
+possible via AJAX requests, which are asynchronous HTTP requests that
+don’t require page reloads for their response to be realized. Most
+requests in a React app are AJAX, meaning pages reloads are seldom. When
+a response is received, the virtual DOM is updated with the new content
+based on how the React component is written to react to this response.
+Then, the actual DOM is compared with this new virtual DOM, and the only
+changes to the HTML are the changes that the response elicited. No page
+load required.</p>
+<p>React components contain the AJAX requests, including the request
+body, as well as what action will occur when the response is received.
+Since React manages the virtual DOM diffing and raw HTML injection, the
+server very seldom returns HTML (Ignoring server side rendering, which
+is out of scope for this project). Instead, the response is in the form
+of JSON, which can include status, data, error logs, etc., and HTML
+creation and rendering is handled client side. This is a slightly new
+paradigm when compared to a non-SPA. Traditionally, a client would be
+served HTML directly and render this response body. Using React, the
+practice is instead to use the JSON response to create new <em>React
+components</em>, which will be picked up by React, added to the virtual
+DOM, diffed with the actual DOM, and injected as HTML, all client
+side.</p>
+<h4 id="server">Server:</h4>
+<p>Since HTML is created dynamically client side, back end requests are
+typically only for database reads/writes and authentication. As
+mentioned, these requests would begin with <code>/api</code> in its
+request path, and would then be proxied to the Node server. The Node
+process is being run from the <code>server.js</code> container file,
+which establishes a port for Node to listen over, as well as app-wide
+middleware leveraging Express. This middleware includes CORS to bypass
+browsers enforcing SOP on the front end hitting the back end in
+development, a cookie parser for authentication, and the different
+routes the app uses to partition concerns. For this app, it includes
+routes such as accounts, budgets, authentication, etc.</p>
+<p>The <code>/routes</code> directory are where routes for the
+respective concerns are defined, including the endpoint path, the
+request type, and the function used for business logic and querying the
+database. The <code>/controllers</code> directory contains the
+implementation of said business logic, including authorization, getting
+accounts, creating transactions, etc. If these functions need access to
+the database, they call the corresponding function in the
+<code>/models</code> directory, which contains the actual SQL statements
+for querying the database. It accesses the database via a pool
+established in <code>db.js</code>, which expects a PostgreSQL server to
+be running and accessible via the database URL in the <code>.env</code>
+file.</p>
+<h2 id="hooks">Hooks</h2>
+<h3 id="state">State</h3>
+<p>State allows JavaScript variables to trigger the component it’s a
+part of to it’s a part ofen it changes value. For example, the list of
+transactions is not available immediately on render, thus its state is
+initialized to an empty array. When the response is received (which is
+very quick, but still after), the state changes to the full array of
+transactions. Since the transaction list uses the State hook, the entire
+transaction list component is re-rendered with the updated transactions
+array.</p>
+<h3 id="effect">Effect</h3>
+<p>Effect allows for a piece of logic to run when the state of something
+changes. Its body always runs when a component is first rendered, also
+known as when a component ‘mounts’, and it will re-run when its
+arguments change state. For example, the bar graph that can toggle
+between weekly and monthly budgets in the budgets endpoint contains an
+effect hook. It runs initially when the page mounts (either a page load
+of an endpoint is reached for the first time). Since it is provided
+<code>period</code> as an argument, every time the state of period
+changes (weekly -&gt; monthly or vice versa), the code that renders the
+chart runs again with the new updated period.</p>
+<h3 id="context">Context</h3>
+<p>A key motivation behind React’s component approach is separation of
+concerns. A component should loosely serve one purpose and be minimally
+coupled with others. Sometimes though, certain information has to be
+shared to some extent among a collection of components. One way this can
+be achieved is by passing variables as parameters (props) to components.
+However, with a sufficiently complicated component structure, this can
+result in passing arguments to components that do not need them, but are
+a parent of a component that needs them (prop drilling). This is
+considered bad practice.</p>
+<p>The solution is to use the Context hook. This allows state to be
+shared among a group of components without prop drilling. This is
+achieved via a particular design pattern.</p>
+<p>For example, if there was no context hook, when a user submits the
+transactions creation form, only the form component is triggered to
+re-render. The transaction list cannot receive this information and only
+re-renders after a page load or some other trigger. Instead, the
+component <code>TransactionsContext.jsx</code> wraps the root of the
+DOM, which contains the fetch request for the transaction, as well as
+the state hook for the transaction list itself. Since it is wrapped in a
+parent of both the transaction form and the transaction list, the fetch
+request can create new transactions, as well as update the state of the
+transaction list, while keeping the concerns of the respective component
+files separate. Then, the components simply call the function or
+reference the state in the context provider for adding transactions or
+listing them.</p>
+<h2 id="authentication">Authentication</h2>
+<h3 id="registration">Registration</h3>
+<p>When a user creates a user name and password, the password is hashed
+and stored as such in the database. This means that even if the database
+is compromised, the passwords would be useless without having the actual
+passwords that solve the hash. There should be some sort of recovery
+protocol for forgotten passwords, however, the scope of this project
+never reached that point. As it stands, if someone forgets their
+password, the account is locked indefinitely.</p>
+<h3 id="login">Login</h3>
+<p>When a user logs in, their password entry is used to solve the hash
+associated with their username entry. If it works, they are granted
+access to their account. The app is using Bcrypt, which is a strong
+hashing algorithm based on the blowfish cipher. By design, it is
+computationally intensive to brute force.</p>
+<h3 id="cookies-and-tokens">Cookies and Tokens</h3>
+<p>When a valid password is received on a login attempt, the app checks
+if they have a <em>refresh</em> token in the database. A refresh token
+is a long term access token that allows for users to stay logged in when
+they close the tab. Without this, every time a user visits the site or
+even reloads their browser while remaining on a page, they will be
+prompted to login again. If the user has a valid refresh token in the
+database, which is the case when users log out, a new one will not be
+minted. If they are logging in for the first time, or it is passed
+token’s expiry date (in this app’s case it’s seven days), a new one will
+be minted. In both cases, this refresh token will be stored as a cookie
+in the browser, meaning the user can visit the page again or reload it
+without having to login.</p>
+<p>In addition to a <em>refresh</em> token, an <em>access</em> token is
+also minted on login. This token is shorter lived than the refresh token
+(in this app’s case it’s 15 minutes) and only stored as a cookie, not in
+the database. This token is used to authenticate users every endpoint it
+hits. The intention behind a token like this is to limit exposure of the
+more powerful refresh token. It’s better to expose a shorter-lived
+token, as an attacker would only then obtain, in this case, 15 minutes
+of access. It’s also computationally cheaper process to use, as it does
+not require a database query, which is important for something that will
+be called often.</p>
+<p>Every protected endpoint hits the <code>/me</code> endpoint. This
+checks if there exists a valid access token. This checks out because we
+know these were minted relative to the refresh token, which is tied to a
+successful login attempt. If this fails, it hits the
+<code>/refresh</code> endpoint. This attempts to mint a new access token
+if a refresh token cookie exists. If there is a refresh token, a new
+access token is minted. If not, the user must login again. This will
+only happen after a week of being logged in, and is the intention of the
+lifespan of the refresh token.</p>
+<h2 id="database">Database</h2>
+<p>This app uses the relational database software PostgreSQL. This is a
+database server, as opposed to something like SQLite, thus it must
+listen on some port. In <code>db.js</code>, a database pool is created
+relative to the database URL in the server .env file. This allows the
+app to hit the port the database is being run on. As mentioned in the
+request flow section, this file expects a PostgreSQL server to be
+running and accessible via the database URL in the <code>.env</code>
+file. PostgreSQL was chosen in part to experiment with a server-based
+database, as well as support for multiple concurrent users.</p>
+<p>The database contains tables for users, accounts, categories,
+transactions, budgets, and refresh_tokens. The schema is normalized with
+the exception of the balance column in the accounts table. I did not
+catch this in the beginning and is one of the things I intend on
+refactoring.</p>
+<h2 id="production">Production</h2>
+<p>This app is deployed on a Digital Ocean droplet, which is a remote
+Linux machine commonly used for self hosting Linux servers. On this
+server, there is an Nginx process running that acts as a web server and
+a reverse proxy. A web server means it can accept HTTP requests over the
+internet, and a reverse proxy means it doesn’t expose the actual
+endpoints; rather it proxies them to the appropriate parts of the app,
+whether it’s the Node server or static files.</p>
+<p>In a production environment, it is best practice to employ a service
+manager so the app can handle errors that would otherwise crash a
+development environment. This app uses pm2, which is a process manager
+that spins up multiple Node services and handles errors/crashes. Nginx
+handles concurrency very well and thus works well with pm2. Nginx
+efficiently allocates requests to different workers/Node processes,
+allowing for multiple requests to be handled concurrently.</p>
+<p>As mentioned in the request data flow section, there is an Nginx
+configuration file that proxies requests. Here’s part of it:</p>
+<div class="sourceCode" id="cb1"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>    <span class="ex">server_name</span> finance-app.mattdehaas.dev<span class="kw">;</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>    <span class="ex">root</span> /var/www/projects_site/finance-app/client/build<span class="kw">;</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>    <span class="ex">index</span> index.html<span class="kw">;</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Serve React front end</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>    <span class="ex">location</span> / {</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>        <span class="ex">try_files</span> <span class="va">$uri</span> /index.html<span class="kw">;</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>    <span class="er">}</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Proxy API requests to Node back end</span></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>    <span class="ex">location</span> /api {</span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>        <span class="ex">proxy_pass</span> http://localhost:5001<span class="kw">;</span></span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>        <span class="ex">proxy_http_version</span> 1.1<span class="kw">;</span></span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>        <span class="ex">proxy_set_header</span> Upgrade <span class="va">$http_upgrade</span><span class="kw">;</span></span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>        <span class="ex">proxy_set_header</span> Connection <span class="st">&#39;upgrade&#39;</span><span class="kw">;</span></span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>        <span class="ex">proxy_set_header</span> Host <span class="va">$host</span><span class="kw">;</span></span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>        <span class="ex">proxy_cache_bypass</span> <span class="va">$http_upgrade</span><span class="kw">;</span></span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>    <span class="er">}</span></span></code></pre></div>
+<p>The location keyword here is the HTTP request path. Here, if the path
+begins with <code>/api</code>, the request will be proxied to the port
+serving the Node app. In any other case, if the path is a static asset
+on the server, such as an image or the JavaScript build file, it serves
+this file directly. Otherwise, it falls back to <code>index.html</code>,
+which is the shell HTML file mentioned earlier.</p>
+<p>The Digital Ocean droplet being used for this app is very minimal
+(1GB RAM), and building the React app for production is sufficiently
+expensive that it is not runnable on the remote. Thus, there is a small
+deploy shell script to build the React build directory, rsync the files
+over to the remote, and restart the process manager.</p>
+</body>
+</html>
