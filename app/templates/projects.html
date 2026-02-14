@@ -1,380 +1,113 @@
 {% extends "base.html" %}
 
 {% block body %}
+<div class="max-w-5xl mx-auto px-6 py-16">
+  
+  <header class="mb-16 border-b border-slate-200 pb-8">
+    <h1 class="text-4xl font-extrabold text-slate-900 tracking-tight">Personal Projects</h1>
+    <p class="mt-4 text-lg text-slate-600 max-w-2xl">
+      A collection of applications, scripts, and experiments I've built to solve real-world problems and explore new technologies.
+    </p>
+  </header>
 
-  <section class="projects">
-    <h2>My Personal Projects</h2>
+  <div class="space-y-24">
+    <article class="group grid md:grid-cols-12 gap-8 items-start">
+      <div class="md:col-span-5 space-y-4">
+        <div class="text-sm font-bold text-emerald-600 tracking-widest uppercase">July 2025 - Present</div>
+        <h3 class="text-2xl font-bold group-hover:text-emerald-600 transition-colors">
+          <a target="_blank" href="https://mom-operations.mattdehaas.dev">Meals On the Move Ops</a>
+        </h3>
+        <p class="text-slate-600 leading-relaxed">
+          My first contracted project. Automates core operations by transforming Google Sheets data into formatted zip files containing labels and packing slips.
+        </p>
+        <div class="flex flex-wrap gap-2 pt-2">
+          {% for tech in ["Python", "Flask", "Pandas", "HTMX", "SQLite"] %}
+            <span class="px-3 py-1 bg-emerald-50 text-emerald-700 text-xs font-semibold rounded-full border border-emerald-100">{{ tech }}</span>
+          {% endfor %}
+        </div>
+      </div>
+      <div class="md:col-span-7 bg-slate-100 rounded-2xl h-48 flex items-center justify-center border-2 border-dashed border-slate-300">
+        <span class="text-slate-400 font-medium italic">Internal Enterprise Tool - Proprietary Interface</span>
+      </div>
+    </article>
 
-    <article class="project">
-      <header class="project-header">
-        <h3><a target="_blank" href="https://finance-app.mattdehaas.dev">
+    <article class="group grid md:grid-cols-12 gap-8 items-start">
+      <div class="md:col-span-5 space-y-4">
+        <div class="text-sm font-bold text-blue-600 tracking-widest uppercase">Sept 2025</div>
+        <h3 class="text-2xl font-bold group-hover:text-blue-600 transition-colors">
+          <a target="_blank" href="https://finance-app.mattdehaas.dev" class="flex items-center gap-2">
             Financial Management App
-            </a>
+            <svg class="w-5 h-5 opacity-0 group-hover:opacity-100 transition-opacity" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
+          </a>
         </h3>
-      </header>
-
-      <div class="project-media">
-        <img src="{{ url_for('static', filename='static/media/images/finance-dashboard.png') }}" alt="Screenshot of...">
-        <img src="{{ url_for('static', filename='static/media/images/finance-accounts.png') }}" alt="Screenshot of...">
-        <img src="{{ url_for('static', filename='static/media/images/finance-budgets.png') }}" alt="Screenshot of...">
+        <p class="text-slate-600 leading-relaxed">
+          A fully functional SPA for personal finance tracking. Implemented custom JWT-based authentication and secure cryptographic password storage.
+        </p>
+        <ul class="text-sm text-slate-500 space-y-1 list-disc list-inside">
+          <li>Interactive spending charts & summaries</li>
+          <li>Full transaction history & budget tracking</li>
+        </ul>
+        <div class="flex flex-wrap gap-2 pt-2">
+          {% for tech in ["React", "PostgreSQL", "TailwindCSS", "JWT", "Nginx"] %}
+            <span class="px-3 py-1 bg-slate-100 text-slate-600 text-xs font-semibold rounded-full border border-slate-200">{{ tech }}</span>
+          {% endfor %}
+        </div>
       </div>
-
-      <div class="project-details">
-
-        <i>Sept 3, 2025 – Sept 15, 2025</i>
-        <p>
-          A fully functional web application for personal finance tracking and planning. 
-          Users can register and log in securely with JWT-based authentication, which uses 
-          long-lived refresh tokens and short-lived access tokens. Passwords are stored 
-          as cryptographic hashes to ensure confidentiality. Once logged in, users can:
-        </p>
-        <ul class="project-features">
-          <li>Open accounts and create spending categories</li>
-          <li>Record deposits and withdrawals with full transaction history</li>
-          <li>Set category budgets and visualize progress with interactive charts</li>
-          <li>View spending by category with a pie chart</li>
-          <li>Access a dashboard with summaries of savings, spending trends, and monthly breakdowns</li>
-        </ul>
-        <p>
-          The intention behind this project was to gain practical experience building a 
-          single-page application (SPA) with a modern, scalable tech stack. Beyond working 
-          with Flask, React, PostgreSQL, and Nginx, I implemented my own authentication 
-          system, deployed on a self-managed Linux server, and integrated custom data 
-          visualizations. This experience gave me valuable insight into how web 
-          applications function end-to-end, from backend services to user-facing features.
-        </p>
-
-
-        <ul class="meta">
-          <li><strong>Tech stack:</strong> React, TailwindCSS, Material UI, ApexCharts, Node (Express, bcrypt), PostgreSQL, Nginx, DigitalOcean, pm2</li>
-        </ul>
-
+      
+      <div class="md:col-span-7 grid grid-cols-2 gap-3">
+        <img src="{{ url_for('static', filename='static/media/images/finance-dashboard.png') }}" class="rounded-lg shadow-sm border border-slate-200 hover:scale-[1.02] transition-transform col-span-2">
+        <img src="{{ url_for('static', filename='static/media/images/finance-accounts.png') }}" class="rounded-lg shadow-sm border border-slate-200 hover:scale-[1.02] transition-transform">
+        <img src="{{ url_for('static', filename='static/media/images/finance-budgets.png') }}" class="rounded-lg shadow-sm border border-slate-200 hover:scale-[1.02] transition-transform">
       </div>
     </article>
 
-    <article class="project">
-      <header class="project-header">
-        <h3><a target="_blank" href="https://mom-operations.mattdehaas.dev">
-              Operations Management Software
-            </a>
+    <article class="group grid md:grid-cols-12 gap-8 items-start">
+      <div class="md:col-span-5 space-y-4">
+        <div class="text-sm font-bold text-indigo-600 tracking-widest uppercase">May 2025</div>
+        <h3 class="text-2xl font-bold group-hover:text-indigo-600 transition-colors">
+          <a target="_blank" href="https://gambit.mattdehaas.dev">Gambit 1-vs-1 Betting</a>
         </h3>
-      </header>
-
-      <div class="project-details">
-
-        <i>July 2025 - Present</i>
-        <p>
-          An enterprise web app built for <strong>Meals On the Move</strong> to automate core operations.
-          The project included:
+        <p class="text-slate-600 leading-relaxed">
+          A peer-to-peer wagering platform for "fake tokens." Unlike market-based platforms, Gambit focuses on direct challenges between two users.
         </p>
-
-        <ul class="project-features">
-          <li>
-            Secure <strong>admin dashboard</strong> protected by encrypted credentials.
-          </li>
-          <li>
-            A <strong>form-based tool</strong> that accepts a Google Sheet URL and returns a 
-            <strong>zip file</strong> containing packing slips, labels, and a shopping list 
-            formatted to company specifications.
-          </li>
-          <li>
-            Professional <strong>development practices</strong> were followed, with a strong 
-            emphasis on reliability and maintainability.
-          </li>
-          <li>
-            The product was <strong>thoroughly tested</strong> before delivery to ensure smooth operations.
-          </li>
-          <li>
-            This was the <strong>first contracted project</strong> I developed and delivered successfully.
-          </li>
-        </ul>
-
-        <ul class="meta">
-          <li><strong>Tech stack:</strong> Python (Flask, Pandas, bcrypt, ReportLab), JavaScript (HTMX), TailwindCSS, SQLite, Nginx, Gunicorn, DigitalOcean</li>
-        </ul>
-
+        <div class="flex flex-wrap gap-2 pt-2">
+          {% for tech in ["Flask", "HTMX", "Business Logic", "TailwindCSS"] %}
+            <span class="px-3 py-1 bg-indigo-50 text-indigo-700 text-xs font-semibold rounded-full border border-indigo-100">{{ tech }}</span>
+          {% endfor %}
+        </div>
+      </div>
+      <div class="md:col-span-7 grid grid-cols-3 gap-2">
+        <img src="{{ url_for('static', filename='static/media/images/bettt-feed.png') }}" class="rounded-lg border border-slate-200 shadow-sm">
+        <img src="{{ url_for('static', filename='static/media/images/bettt-create.png') }}" class="rounded-lg border border-slate-200 shadow-sm">
+        <img src="{{ url_for('static', filename='static/media/images/bettt-leaderboard.png') }}" class="rounded-lg border border-slate-200 shadow-sm">
       </div>
     </article>
 
-    <article class="project">
-      <header class="project-header">
-        <h3><a target="_blank" href="https://gambit.mattdehaas.dev">
-              Gambit
-            </a>
-        </h3>
-      </header>
+    <div class="pt-12 border-t border-slate-200">
+      <h2 class="text-xl font-bold text-slate-900 mb-8">Other Experiments & Legacy Projects</h2>
+      <div class="grid md:grid-cols-2 gap-6">
+        
+        <div class="p-6 border border-slate-200 rounded-2xl hover:bg-slate-50 transition-colors">
+          <h4 class="font-bold text-slate-900">Guitar Tab Generator</h4>
+          <p class="text-sm text-slate-500 mt-2">Signal processing project using NumPy/SciPy to detect overtones and notes from raw audio without ML.</p>
+          <div class="mt-4 flex gap-2">
+            <span class="text-[10px] font-bold px-2 py-0.5 bg-slate-200 rounded uppercase">Python</span>
+            <span class="text-[10px] font-bold px-2 py-0.5 bg-slate-200 rounded uppercase">DSP</span>
+          </div>
+        </div>
 
-      <div class="project-media">
-        <img src="{{ url_for('static', filename='static/media/images/bettt-feed.png') }}" alt="Screenshot of...">
-        <img src="{{ url_for('static', filename='static/media/images/bettt-create.png') }}" alt="Screenshot of...">
-        <img src="{{ url_for('static', filename='static/media/images/bettt-inbox.png') }}" alt="Screenshot of...">
-        <img src="{{ url_for('static', filename='static/media/images/bettt-profile.png') }}" alt="Screenshot of...">
-        <img src="{{ url_for('static', filename='static/media/images/bettt-leaderboard.png') }}" alt="Screenshot of...">
-      </div>
-
-      <div class="project-details">
-
-        <i>May 2025 - June 2025</i>
-          <p>
-            A fully functional <strong>betting web app</strong> that allowed users to 
-            sign up, stake <em>fake tokens</em>, create bets, challenge others, 
-            and settle wagers. Unlike platforms such as 
-            <a target="_blank" href="https://polymarket.com/">Polymarket</a>, 
-            which focus on markets, this app emphasized 
-            <strong>1-vs-1 challenges</strong> where each bet was created by one user 
-            and accepted by exactly one challenger.
-          </p>
-
-          <ul class="project-features">
-            <li>
-              Implemented <strong>user authentication</strong> and token-based staking system.
-            </li>
-            <li>
-              Developed a <strong>front end interface</strong> from scratch and handled 
-              most of the <strong>business logic</strong> and <strong>database queries</strong>.
-            </li>
-            <li>
-              Collaborative project, but I primarily served as the 
-              <strong>full-stack developer</strong>, providing well over 90% contribution
-            </li>
-          </ul>
-
-        <ul class="meta">
-          <li><strong>Tech stack:</strong> Python (Flask), JavaScript (HTMX), TailwindCSS, SQLite, Nginx, Gunicorn, DigitalOcean</li>
-        </ul>
+        <div class="p-6 border border-slate-200 rounded-2xl hover:bg-slate-50 transition-colors">
+          <h4 class="font-bold text-slate-900">Varsity Web Scraper</h4>
+          <p class="text-sm text-slate-500 mt-2">Generalized scraper for SIDEARM Sports platforms, covering 2/3 of Canadian University athletics.</p>
+          <div class="mt-4 flex gap-2">
+            <span class="text-[10px] font-bold px-2 py-0.5 bg-slate-200 rounded uppercase">BeautifulSoup</span>
+            <span class="text-[10px] font-bold px-2 py-0.5 bg-slate-200 rounded uppercase">Flask</span>
+          </div>
+        </div>
 
       </div>
+    </div>
 
-    </article>
-
-
-    <article class="project">
-
-      <header class="project-header">
-        <h3><a target="_blank" href="https://www.polll.org">
-              Polll
-            </a>
-        </h3>
-      </header>
-
-      <div class="project-details">
-
-        <i>November 2024 - March 2025</i>
-        <p>
-          A fully functional <strong>social media platform for polls</strong>. 
-          Users could sign up, create <em>one poll per day</em>, 
-          vote on polls created by others, and share their opinions through comments.
-        </p>
-
-        <ul class="project-features">
-          <li>
-            Joined the project about one month into development.
-          </li>
-          <li>
-            Contributed primarily to the <strong>front end</strong>, 
-            improving the user experience and interface design.
-          </li>
-          <li>
-            Implemented key features for <strong>poll creation</strong>, 
-            <strong>voting</strong>, and <strong>commenting</strong>.
-          </li>
-        </ul>
-        <p>
-          As of September 2025, the site has been taken down.
-        </p>
-
-        <ul class="meta">
-          <li><strong>Tech stack:</strong> Python (Flask, SciPy), JavaScript (HTMX, ApexCharts.js), TailwindCSS, PostgreSQL, Supabase, Gunicorn, Heroku</li>
-        </ul>
-
-      </div>
-
-    </article>
-
-
-    <article class="project">
-
-      <header class="project-header">
-        <h3><a target="_blank" href="https://github.com/MatthewdeHaas/guitar-tab-generator">
-              Guitar Tab Generator
-            </a>
-        </h3>
-      </header>
-
-      <div class="project-details">
-
-        <i>December 2024 - Present</i>
-        <p>
-          The intention with this app is to convert a soundfile to guitar tablature.
-          Conceputally this is simple, but the details of it's implementation are exceedinly nontrivial.
-          Currently, I am able to determine the notes and overtones of a sound file with a single, relatively clean, guitar note.
-          I've always loved guitar and the math behind signials and sound, so I refuse to scrap this project entirely, but as it stands it is very low on the priority list.
-          Also I do not intend on using machine learning for this project.
-        </p>
-
-        <ul class="meta">
-          <li><strong>Tech stack:</strong> Python (Numpy, SciPy)</li>
-        </ul>
-
-      </div>
-
-    </article>
-
-
-
-    <article class="project">
-
-      <header class="project-header">
-        <h3><a target="_blank" href="https://varsityanalytics.mattdehaas.dev">
-              Canadian Varsity Web Scraper
-            </a>
-        </h3>
-      </header>
-
-
-      <div class="project-details">
-
-        <i>November 2024 - December 2024</i>
-        <p>
-          This project is a web app that aggregates information on Canadian varsity athletes 
-          from universities that use <strong>SIDEARM Sports</strong> platform to host their athletics website. 
-          It began as a tool for my own school (UBC), but I realized that this company uses the exact same
-          format for all schools they are under contract with. This means the web scraping code didn't need to
-          change at all.
-        </p>
-
-        <ul class="project-features">
-          <li>
-            Initially built for <strong>UBC</strong>, the scraper was later generalized 
-            to include all Canadian universities using SIDEARM Sports (about two-thirds 
-            of them), without requiring changes to the underlying scraping logic.
-          </li>
-          <li>
-            Athlete data is <strong>organized by school</strong> for easier browsing 
-            and comparison across institutions.
-          </li>
-          <li>
-            The consistent structure of SIDEARM Sports websites allowed the original 
-            hard-coded HTML parsing built for UBC to be reused across multiple schools 
-            without modification.
-          </li>
-          <li>
-            As an experimental extension, I implemented a <strong>CNN for facial analysis</strong> 
-            on athlete headshots. The model worked well technically, but due to the 
-            sensitive nature of the application, this feature was not released publicly.
-          </li>
-        </ul>
-
-        <ul class="meta">
-          <li><strong>Tech stack:</strong> Python (Flask, beautifulsoup4), TailwindCSS, SQLite, Nginx, Gunicorn, DigitalOcean</li>
-        </ul>
-
-      </div>
-
-    </article>
-
-
-    <article class="project">
-
-      <header class="project-header">
-        <h3><a target="_blank" href="https://github.com/MatthewdeHaas/WJ-Monitoring-data">
-              WJ Water Level Monitor
-            </a>
-        </h3>
-      </header>
-
-      <div class="project-details">
-
-        <i>July 2024 - August 2024</i>
-        <p>
-          This project automated the manual process of logging water pressure levels for a construction company. 
-          During a summer job, I was tasked with monitoring water pressure in a compromised area and recording 
-          updates every few minutes. To streamline this repetitive task, I developed the following solution:
-        </p>
-
-        <ul class="project-features">
-          <li>
-            A <strong>JavaScript script</strong>, run directly in the Chrome console, which 
-            fetched real-time data from the server’s API, cleaned the data, and generated 
-            <strong>.csv-formatted logs</strong> replicating the paper sheets I was using.
-          </li>
-          <li>
-            The script enabled <strong>automated tracking</strong> even when the website front-end 
-            was down, as long as the API remained available — something not previously possible.
-          </li>
-          <li>
-            A supporting <strong>Python utility</strong> was written to convert large chained 
-            .csv files into individual <strong>.xlsx files</strong> for easier reporting and archival.
-          </li>
-          <li>
-            This project saved time, reduced error risk, and provided a more resilient method 
-            of monitoring water levels.
-          </li>
-        </ul>
-        <p>
-          The job was successfully completed and thus the monitoring server was shut down. 
-          The API is no longer accessible.
-        </p>
-
-        <ul class="meta">
-          <li><strong>Tech stack:</strong> JavaScript, Python</li>
-        </ul>
-
-      </div>
-
-    </article>
-
-
-    <article class="project">
-
-      <header class="project-header">
-        <h3><a target="_blank" href="https://activitykeeperproject.mattdehaas.dev/">
-              Strava Activty Tracker
-            </a>
-        </h3>
-      </header>
-
-      <div class="project-media">
-        <img src="{{ url_for('static', filename='static/media/images/akp-home.png') }}" alt="Screenshot of...">
-        <img src="{{ url_for('static', filename='static/media/images/akp-calc.png') }}" alt="Screenshot of...">
-        <img src="{{ url_for('static', filename='static/media/images/akp-calendar.png') }}" alt="Screenshot of...">
-      </div>
-
-      <div class="project-details">
-
-        <i>January 2024 - February 2024</i>
-        <p>
-          This project visualizes my personal <strong>Strava</strong> data by connecting 
-          to the Strava API and graphing the results. Alongside data visualization, 
-          it also provides simple utilities for <strong>race pace calculations</strong> 
-          and <strong>mileage scheduling</strong>.
-        </p>
-
-        <ul class="project-features">
-          <li>
-            Originally hosted locally through VS Code’s “Live Server” extension 
-            before I understood how web servers worked.
-          </li>
-          <li>
-            Later restructured using <strong>Flask</strong> as a web framework, 
-            which allowed it to be deployed as a <strong>subdomain</strong> of this site.
-          </li>
-          <li>
-            Began as a small set of tools, with the long-term goal of evolving into 
-            a full training and scheduling hub. While I lost interest before reaching 
-            that scope, the project still gave me valuable hands-on experience with 
-            APIs, deployment, and Flask-based app design.
-          </li>
-        </ul>
-
-        <ul class="meta">
-          <li><strong>Tech stack:</strong> Python (Flask), JavaScript (Chart.js, FullCalendar), TailwindCSS, Nginx, Gunicorn, DigitalOcean</li>
-        </ul>
-
-      </div>
-
-    </article>
-
-  </section>
-
+  </div>
+</div>
 {% endblock %}

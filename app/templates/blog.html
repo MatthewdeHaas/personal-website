@@ -1,12 +1,17 @@
 {% extends "base.html" %}
 
-  
 {% block body %}
-
-  <div class="blog-post">
+<article class="max-w-4xl mx-auto px-6 py-12 lg:py-20">
+  
+  <div class="blog-post prose prose-slate prose-lg max-w-none prose-headings:text-slate-900 prose-a:text-blue-600">
     {{ content|safe }}
   </div>
 
+  <div class="mt-16 pt-8 border-t border-slate-200">
+    <a href="{{ url_for('home.blogs') }}" class="text-sm font-bold text-slate-500 hover:text-blue-600 transition-colors">
+      &larr; Back to Articles
+    </a>
+  </div>
+  
+</article>
 {% endblock %}
-
-

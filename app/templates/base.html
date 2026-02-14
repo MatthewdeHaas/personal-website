@@ -1,47 +1,44 @@
-<!doctype html>
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-  <!-- HTMX  -->
-  <script src="https://unpkg.com/htmx.org@2.0.4" integrity="sha384-HGfztofotfshcF7+8n44JQL2oJmowVChPTg48S+jvZoztPfvwD79OC/LTtG6dMp+" crossorigin="anonymous"></script>
-    
-  <!-- Custom scripts -->
-  <script src="../static/scripts/ui.js"></script>
-
-  <!-- Custom style -->
-  <link rel="stylesheet" href="../static/styles/base.css">
-
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Matthew deHaas</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/htmx.org@1.9.10"></script>
+    <link rel="stylesheet" href="../static/styles/base.css">
 </head>
+<body class="bg-slate-50 text-slate-900 min-h-screen flex flex-col" hx-boost="true">
 
-<html>
-  
-  <body hx-boost="true">
+    <nav class="sticky top-0 z-50 bg-white/80 backdrop-blur-md border-b border-slate-200">
+        <div class="mx-auto px-8 h-16 flex items-center justify-between">
+            <div class="font-bold text-xl tracking-tight">
+                <a href="{{ url_for('home.index') }}">Home.</a>
+            </div>
+            
+            <div class="flex gap-8 text-sm font-medium">
+                <a href="{{ url_for('home.projects') }}" 
+                   class="transition-colors hover:text-blue-600 {% if request.endpoint == 'home.projects' %}text-blue-600{% else %}text-slate-500{% endif %}">
+                    Projects
+                </a>
 
-    <nav>
-
-      <a href="{{ url_for('home.index') }}" class="{% if request.endpoint == 'home.index' %}active{% endif %}">
-        Home
-      </a>
-
-      <a href="{{ url_for('home.projects') }}" class="{% if request.endpoint == 'home.projects' %}active{% endif %}">
-       Projects 
-      </a>
-      <a href="{{ url_for('home.blogs') }}" class="{% if request.endpoint == 'home.blogs' or request.endpoint == 'home.blog'%}active{% endif %}">
-       Articles
-      </a>
-
+                <a href="{{ url_for('home.blogs') }}" 
+                   class="transition-colors hover:text-blue-600 {% if request.endpoint == 'home.blogs' or request.endpoint == 'home.blog' %}text-blue-600{% else %}text-slate-500{% endif %}">
+                    Articles
+                </a>
+            </div>
+        </div>
     </nav>
 
-    <main>
-      {% block body %}{% endblock %}
+    <main class="flex-grow">
+        {% block body %}{% endblock %}
     </main>
 
-    <footer>
-      <p>&copy; Matthew deHaas 2025. All rights reserved.</p>
+    <footer class="border-t border-slate-200 bg-white py-10">
+        <div class="max-w-4xl mx-auto px-6 text-center text-slate-400 text-sm">
+            <p>&copy; 2026 Matthew deHaas. Built with Flask & Tailwind.</p>
+        </div>
     </footer>
 
-
-  </body>
-
+</body>
 </html>

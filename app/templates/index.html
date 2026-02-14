@@ -1,41 +1,61 @@
 {% extends "base.html" %}
 
 {% block body %}
+<div class="max-w-4xl mx-auto px-6 py-12 space-y-20 font-sans text-slate-800">
 
-<!-- Header -->
-  <div class="">
-    <h1 class="">Hello, I'm Matthew</h1>
-    <nav class="social-links">
-      <a target="_blank" href="https://github.com/MatthewdeHaas">GitHub</a>
-      <a target="_blank" href="https://www.linkedin.com/">LinkedIn</a>
+  <header class="flex flex-col md:flex-row md:items-center md:justify-between gap-6">
+    <div>
+      <h1 class="text-5xl font-extrabold tracking-tight text-slate-900">
+        Hello, I'm <span class="text-blue-600">Matthew</span>
+      </h1>
+      <p class="mt-2 text-lg text-slate-500">Full-stack Developer & Creative Thinker.</p>
+    </div>
+    
+    <nav class="flex gap-4">
+      <a target="_blank" href="https://github.com/MatthewdeHaas" 
+         class="px-4 py-2 bg-slate-900 text-white rounded-lg hover:bg-slate-700 transition-colors shadow-sm">
+        GitHub
+      </a>
+      <a target="_blank" href="https://www.linkedin.com/" 
+         class="px-4 py-2 border border-slate-200 rounded-lg hover:bg-slate-50 transition-colors shadow-sm">
+        LinkedIn
+      </a>
     </nav>
-  </div>
+  </header>
 
-  <!-- Images -->
-  <section class="photos container">
-    <div class="photo-grid">
-      ...
-      <!-- <img src="static/media/images/..."> -->
-      <!-- <img src="static/media/images/..."> -->
-      <!-- <img src="static/media/images/.."> -->
+  <section class="overflow-hidden rounded-2xl shadow-xl">
+    <div class="aspect-video w-full bg-slate-100">
+      <img src="static/media/images/lying-down.jpg" 
+           alt="Matthew"
+           class="w-full h-full object-cover hover:scale-105 transition-transform duration-500">
     </div>
   </section>
 
-  <!-- About -->
-  <section class="about container">
-    <h2>About</h2>
-    <p>
-      ...
-    </p>
-  </section>
+  <div class="grid md:grid-cols-2 gap-12">
+    <section>
+      <h2 class="text-2xl font-bold mb-4 flex items-center gap-2">
+        <span class="w-8 h-1 bg-blue-600 rounded-full"></span>
+        About
+      </h2>
+      <div class="prose prose-slate leading-relaxed text-slate-600">
+        <p>
+        ...
+        </p>
+      </div>
+    </section>
 
-  <!-- Interests -->
-  <section class="interests container">
-    <h2>Interests</h2>
-    <p>
-      ...
-    </p>
-  </section>
+    <section>
+      <h2 class="text-2xl font-bold mb-4 flex items-center gap-2">
+        <span class="w-8 h-1 bg-emerald-500 rounded-full"></span>
+        Interests
+      </h2>
+      <div class="prose prose-slate leading-relaxed text-slate-600">
+        <p>
+        ...
+        </p>
+      </div>
+    </section>
+  </div>
 
-
+</div>
 {% endblock %}
